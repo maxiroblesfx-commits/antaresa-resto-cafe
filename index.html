@@ -3219,7 +3219,15 @@
     enhanceMenuCards();
     wireContactChannels();
     updateOpenStatus();
+    setInterval(updateOpenStatus, 60000);
     renderSmartRecommendations();
+
+    // Evitar reservas con fecha pasada: el mínimo del selector es hoy (hora local).
+    const reservationDate = $('#date');
+    if (reservationDate) {
+      const todayLocal = new Date();
+      reservationDate.min = `${todayLocal.getFullYear()}-${String(todayLocal.getMonth() + 1).padStart(2, '0')}-${String(todayLocal.getDate()).padStart(2, '0')}`;
+    }
 
 
     const revealObserver = new IntersectionObserver((entries) => {
