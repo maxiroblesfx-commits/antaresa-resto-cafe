@@ -1,0 +1,7 @@
+# Config local del entorno (rutas y permisos de esta máquina)
+.claude/settings.local.json
+.claude/launch.json
+
+# Sistema
+Thumbs.db
+.DS_Store

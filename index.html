@@ -1,0 +1,3263 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090705" />
+  <meta name="description" content="Catálogo digital premium para ANTARESa, resto café de autor: bebidas, comidas, brunch, pastelería y experiencias curadas." />
+  <meta name="keywords" content="ANTARESa, resto café, café de especialidad, brunch, pastelería, carta digital, Buenos Aires" />
+  <meta name="author" content="ANTARESa" />
+  <meta property="og:title" content="ANTARESa · Resto Café de Autor" />
+  <meta property="og:description" content="Carta digital premium con bebidas, comidas, brunch, pastelería y experiencias de autor." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/profile-antaresa.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>ANTARESa · Resto Café de Autor</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/profile-antaresa.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <style>
+    :root {
+      --ink: #090705;
+      --night: #120c08;
+      --espresso: #1d1009;
+      --mahogany: #462013;
+      --copper: #a66434;
+      --gold: #d8a95f;
+      --gold-soft: #f1d99a;
+      --cream: #f7ecda;
+      --muted: #cbb9a0;
+      --olive: #56613c;
+      --olive-dark: #222819;
+      --line: rgba(216, 169, 95, .24);
+      --glass: rgba(17, 11, 8, .68);
+      --glass-soft: rgba(255, 243, 222, .07);
+      --shadow: 0 26px 70px rgba(0, 0, 0, .45);
+      --radius-lg: 34px;
+      --radius-md: 22px;
+      --radius-sm: 16px;
+      --max: 1180px;
+      --ease: cubic-bezier(.2, .8, .2, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--cream);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(166, 100, 52, .26), transparent 34rem),
+        radial-gradient(circle at 82% 10%, rgba(86, 97, 60, .25), transparent 30rem),
+        linear-gradient(135deg, #080604 0%, #130b07 42%, #211109 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      opacity: .24;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto -20vw -45vh -20vw;
+      height: 62vh;
+      pointer-events: none;
+      z-index: -1;
+      background: radial-gradient(ellipse at 50% 100%, rgba(216, 169, 95, .18), transparent 64%);
+      filter: blur(10px);
+    }
+
+    ::selection { background: rgba(216, 169, 95, .35); color: #fff; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: .75rem;
+      transform: translateY(-150%);
+      z-index: 999;
+      padding: .75rem 1rem;
+      border-radius: 999px;
+      background: var(--cream);
+      color: var(--ink);
+      transition: transform .25s ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .container {
+      width: min(var(--max), calc(100% - 36px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      margin: 0 0 .9rem;
+      color: var(--gold-soft);
+      font-size: .78rem;
+      font-weight: 780;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .eyebrow::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+    .section-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.1rem, 5vw, 4.8rem);
+      line-height: .96;
+      letter-spacing: -.05em;
+      text-wrap: balance;
+    }
+
+    .section-copy {
+      margin: 1rem 0 0;
+      max-width: 670px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.12rem);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      min-height: 48px;
+      padding: .85rem 1.15rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--cream);
+      font-weight: 760;
+      letter-spacing: .01em;
+      transition: transform .25s var(--ease), border-color .25s ease, background .25s ease, box-shadow .25s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+    .btn-primary {
+      color: #1b0d06;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold) 48%, #ad6c36);
+      box-shadow: 0 18px 34px rgba(216, 169, 95, .18), inset 0 1px 0 rgba(255,255,255,.34);
+    }
+    .btn-secondary {
+      border-color: var(--line);
+      background: rgba(247, 236, 218, .06);
+      backdrop-filter: blur(16px);
+    }
+    .btn-secondary:hover { border-color: rgba(216, 169, 95, .58); background: rgba(247, 236, 218, .1); }
+    .btn-mini {
+      min-height: 38px;
+      padding: .62rem .85rem;
+      font-size: .88rem;
+    }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      border-bottom: 1px solid rgba(216, 169, 95, .12);
+      background: rgba(9, 7, 5, .54);
+      backdrop-filter: blur(22px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .78rem;
+      min-width: max-content;
+    }
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      border: 1px solid rgba(216, 169, 95, .38);
+      box-shadow: 0 10px 24px rgba(0,0,0,.28);
+      object-fit: cover;
+    }
+    .brand-name {
+      display: grid;
+      line-height: 1;
+    }
+    .brand-name strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.24rem;
+      letter-spacing: .08em;
+    }
+    .brand-name span {
+      margin-top: .32rem;
+      color: var(--gold);
+      font-size: .68rem;
+      font-weight: 760;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .15rem;
+      padding: .34rem;
+      border: 1px solid rgba(216, 169, 95, .14);
+      border-radius: 999px;
+      background: rgba(255,255,255,.035);
+    }
+    .nav-links a {
+      padding: .68rem .86rem;
+      border-radius: 999px;
+      color: rgba(247, 236, 218, .78);
+      font-size: .88rem;
+      font-weight: 720;
+      transition: background .2s ease, color .2s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.is-active { color: var(--cream); background: rgba(216, 169, 95, .13); }
+
+    .nav-actions { display: flex; align-items: center; gap: .65rem; }
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(247, 236, 218, .06);
+      color: var(--cream);
+    }
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      margin: 4px auto;
+      border-radius: 2px;
+      background: currentColor;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    body.menu-open .menu-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    body.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+    body.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding: 116px 0 64px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(216, 169, 95, .16);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background: url("assets/hero-antaresa.jpg") center/cover no-repeat;
+      transform: scale(1.02);
+      filter: saturate(1.08) contrast(1.05);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(9,7,5,.93) 0%, rgba(9,7,5,.76) 42%, rgba(9,7,5,.28) 72%, rgba(9,7,5,.82) 100%),
+        radial-gradient(circle at 70% 20%, rgba(216, 169, 95, .16), transparent 28rem),
+        linear-gradient(180deg, rgba(9,7,5,.18), rgba(9,7,5,.94));
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .7fr);
+      align-items: end;
+      gap: clamp(2rem, 5vw, 5rem);
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      padding: .48rem .72rem;
+      border: 1px solid rgba(216, 169, 95, .24);
+      border-radius: 999px;
+      background: rgba(9, 7, 5, .44);
+      color: var(--gold-soft);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      backdrop-filter: blur(16px);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #80c46f;
+      box-shadow: 0 0 0 6px rgba(128, 196, 111, .13);
+    }
+    .hero h1 {
+      margin: 1.2rem 0 0;
+      max-width: 760px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.25rem, 9vw, 8.8rem);
+      line-height: .82;
+      letter-spacing: -.075em;
+    }
+    .hero h1 .mark { color: var(--gold-soft); text-shadow: 0 0 40px rgba(216, 169, 95, .22); }
+    .hero p {
+      margin: 1.25rem 0 0;
+      max-width: 630px;
+      color: rgba(247, 236, 218, .82);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 2rem; }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .75rem;
+      margin-top: 2.35rem;
+      max-width: 720px;
+    }
+    .meta-card {
+      min-height: 104px;
+      padding: 1rem;
+      border: 1px solid rgba(216, 169, 95, .18);
+      border-radius: 22px;
+      background: rgba(9, 7, 5, .54);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+      backdrop-filter: blur(16px);
+    }
+    .meta-card b {
+      display: block;
+      color: var(--gold-soft);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+    .meta-card span {
+      display: block;
+      margin-top: .5rem;
+      color: rgba(247, 236, 218, .72);
+      font-size: .85rem;
+    }
+
+    .hero-panel {
+      position: relative;
+      isolation: isolate;
+      padding: 1rem;
+      border: 1px solid rgba(216, 169, 95, .2);
+      border-radius: 38px;
+      background: linear-gradient(180deg, rgba(247,236,218,.11), rgba(247,236,218,.04));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(216,169,95,.5), transparent 28%, rgba(86,97,60,.32) 58%, transparent);
+      opacity: .55;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      padding: 1px;
+      mask-composite: exclude;
+      -webkit-mask-composite: xor;
+    }
+    .signature-card {
+      overflow: hidden;
+      border-radius: 28px;
+      background: #100a07;
+    }
+    .signature-card img {
+      width: 100%;
+      aspect-ratio: 1 / .82;
+      object-fit: cover;
+      filter: saturate(1.04) contrast(1.04);
+    }
+    .signature-body { padding: 1.15rem; }
+    .signature-body small {
+      color: var(--gold);
+      font-weight: 820;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .signature-body h2 {
+      margin: .45rem 0 .3rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.75rem;
+      letter-spacing: -.04em;
+    }
+    .signature-body p { margin: 0; color: var(--muted); font-size: .96rem; }
+    .panel-badge {
+      position: absolute;
+      right: -8px;
+      top: 26px;
+      display: grid;
+      place-items: center;
+      width: 102px;
+      height: 102px;
+      border-radius: 999px;
+      border: 1px solid rgba(216, 169, 95, .45);
+      background: rgba(9,7,5,.80);
+      box-shadow: 0 22px 46px rgba(0,0,0,.35);
+      color: var(--gold-soft);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.6rem;
+      line-height: .9;
+      text-align: center;
+      transform: rotate(8deg);
+    }
+    .panel-badge span { display: block; color: var(--muted); font-family: Inter, sans-serif; font-size: .61rem; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+
+    section { padding: clamp(4.4rem, 8vw, 7.4rem) 0; }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(1.4rem, 4vw, 4rem);
+      align-items: center;
+    }
+    .story-card {
+      position: relative;
+      padding: clamp(1.35rem, 3vw, 2.25rem);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, rgba(247,236,218,.095), rgba(247,236,218,.035));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .story-card::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -90px;
+      width: 230px;
+      height: 230px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(216,169,95,.20), transparent 65%);
+    }
+    .story-card blockquote {
+      margin: 0;
+      color: var(--cream);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.5rem);
+      line-height: 1.1;
+      letter-spacing: -.04em;
+      text-wrap: balance;
+    }
+    .story-card cite {
+      display: block;
+      margin-top: 1.1rem;
+      color: var(--gold);
+      font-style: normal;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-size: .78rem;
+    }
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .experience {
+      min-height: 178px;
+      padding: 1.2rem;
+      border: 1px solid rgba(216,169,95,.16);
+      border-radius: var(--radius-md);
+      background: rgba(247,236,218,.055);
+      transition: transform .25s var(--ease), background .25s ease, border-color .25s ease;
+    }
+    .experience:hover { transform: translateY(-4px); background: rgba(247,236,218,.085); border-color: rgba(216,169,95,.34); }
+    .experience .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(216,169,95,.13);
+      color: var(--gold-soft);
+    }
+    .experience h3 {
+      margin: 1.1rem 0 .35rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      letter-spacing: -.03em;
+    }
+    .experience p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+    .showcase {
+      border-block: 1px solid rgba(216,169,95,.14);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(86,97,60,.18), transparent 26rem),
+        linear-gradient(180deg, rgba(255,255,255,.025), rgba(0,0,0,.10));
+    }
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2.1rem;
+    }
+    .feature-card {
+      position: relative;
+      min-height: 430px;
+      overflow: hidden;
+      border: 1px solid rgba(216,169,95,.20);
+      border-radius: var(--radius-lg);
+      background: #0f0906;
+      box-shadow: var(--shadow);
+    }
+    .feature-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 430px;
+      object-fit: cover;
+      transition: transform .7s var(--ease);
+    }
+    .feature-card:hover img { transform: scale(1.055); }
+    .feature-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 26%, rgba(9,7,5,.12), rgba(9,7,5,.88));
+    }
+    .feature-content {
+      position: absolute;
+      inset: auto 0 0;
+      z-index: 1;
+      padding: 1.35rem;
+    }
+    .feature-content span {
+      display: inline-flex;
+      padding: .38rem .62rem;
+      border: 1px solid rgba(216,169,95,.28);
+      border-radius: 999px;
+      background: rgba(9,7,5,.56);
+      color: var(--gold-soft);
+      font-size: .72rem;
+      font-weight: 820;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .feature-content h3 {
+      margin: .7rem 0 .25rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.35rem);
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+    .feature-content p { margin: 0; color: rgba(247,236,218,.78); }
+
+    .catalog-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .catalog-tools {
+      display: grid;
+      gap: .85rem;
+      justify-items: end;
+      min-width: min(100%, 430px);
+    }
+    .search-wrap {
+      width: 100%;
+      position: relative;
+    }
+    .search-wrap svg {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(247,236,218,.56);
+      pointer-events: none;
+    }
+    .search-wrap input {
+      width: 100%;
+      min-height: 52px;
+      padding: .85rem 1rem .85rem 2.8rem;
+      border: 1px solid rgba(216,169,95,.18);
+      border-radius: 999px;
+      outline: none;
+      background: rgba(247,236,218,.065);
+      color: var(--cream);
+      transition: border-color .2s ease, background .2s ease;
+    }
+    .search-wrap input:focus { border-color: rgba(216,169,95,.58); background: rgba(247,236,218,.09); }
+    .search-wrap input::placeholder { color: rgba(247,236,218,.42); }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: .45rem;
+    }
+    .tab {
+      padding: .65rem .86rem;
+      border: 1px solid rgba(216,169,95,.18);
+      border-radius: 999px;
+      background: rgba(247,236,218,.05);
+      color: rgba(247,236,218,.75);
+      font-weight: 780;
+      font-size: .88rem;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .tab:hover,
+    .tab.is-active { background: rgba(216,169,95,.16); border-color: rgba(216,169,95,.45); color: var(--cream); }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .menu-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: hidden;
+      border: 1px solid rgba(216,169,95,.17);
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, rgba(247,236,218,.08), rgba(247,236,218,.035));
+      box-shadow: 0 18px 48px rgba(0,0,0,.23);
+      transition: transform .25s var(--ease), border-color .25s ease, background .25s ease;
+    }
+    .menu-card:hover { transform: translateY(-5px); border-color: rgba(216,169,95,.40); background: rgba(247,236,218,.075); }
+    .menu-media {
+      position: relative;
+      min-height: 172px;
+      background: #130d09;
+      overflow: hidden;
+    }
+    .menu-media img {
+      width: 100%;
+      height: 100%;
+      min-height: 172px;
+      object-fit: cover;
+      opacity: .88;
+      transition: transform .6s var(--ease), opacity .25s ease;
+    }
+    .menu-card:hover .menu-media img { transform: scale(1.06); opacity: 1; }
+    .menu-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(9,7,5,.70));
+    }
+    .menu-pill {
+      position: absolute;
+      left: .85rem;
+      top: .85rem;
+      z-index: 1;
+      padding: .35rem .56rem;
+      border: 1px solid rgba(216,169,95,.32);
+      border-radius: 999px;
+      background: rgba(9,7,5,.65);
+      color: var(--gold-soft);
+      font-size: .67rem;
+      font-weight: 830;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+    .menu-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 1.05rem;
+    }
+    .menu-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: start;
+    }
+    .menu-card h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      line-height: 1.06;
+      letter-spacing: -.035em;
+    }
+    .price {
+      min-width: max-content;
+      color: var(--gold-soft);
+      font-weight: 870;
+    }
+    .menu-card p {
+      margin: .72rem 0 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: .42rem; margin-top: .95rem; }
+    .tag {
+      padding: .28rem .48rem;
+      border-radius: 999px;
+      background: rgba(86,97,60,.20);
+      color: rgba(247,236,218,.78);
+      font-size: .72rem;
+      font-weight: 720;
+    }
+    .menu-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .8rem;
+      margin-top: auto;
+      padding-top: 1.05rem;
+    }
+    .calories {
+      color: rgba(247,236,218,.48);
+      font-size: .78rem;
+      font-weight: 680;
+    }
+    .add-btn {
+      border-color: rgba(216,169,95,.22);
+      background: rgba(216,169,95,.10);
+    }
+    .add-btn:hover { border-color: rgba(216,169,95,.55); background: rgba(216,169,95,.16); }
+    .empty-state {
+      display: none;
+      grid-column: 1 / -1;
+      padding: 2rem;
+      border: 1px dashed rgba(216,169,95,.28);
+      border-radius: var(--radius-md);
+      color: var(--muted);
+      text-align: center;
+      background: rgba(247,236,218,.04);
+    }
+    .empty-state.is-visible { display: block; }
+
+    .pairing-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .pairing-card {
+      padding: clamp(1.25rem, 3vw, 2rem);
+      border: 1px solid rgba(216,169,95,.18);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(86,97,60,.18), transparent 40%),
+        rgba(247,236,218,.055);
+      box-shadow: var(--shadow);
+    }
+    .pairing-card h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.7rem);
+      line-height: .96;
+      letter-spacing: -.055em;
+    }
+    .pairing-card p { color: var(--muted); }
+    .pairing-list { display: grid; gap: .7rem; margin-top: 1.3rem; }
+    .pairing-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: .86rem;
+      border: 1px solid rgba(216,169,95,.12);
+      border-radius: 17px;
+      background: rgba(9,7,5,.30);
+    }
+    .pairing-row b { display: block; }
+    .pairing-row span { color: var(--muted); font-size: .88rem; }
+    .pairing-row em { color: var(--gold-soft); font-style: normal; font-weight: 850; }
+    .profile-showcase {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .profile-card {
+      padding: 1rem;
+      border: 1px solid rgba(216,169,95,.20);
+      border-radius: var(--radius-lg);
+      background: rgba(247,236,218,.055);
+      box-shadow: var(--shadow);
+    }
+    .profile-card img {
+      width: 100%;
+      border-radius: 28px;
+      border: 1px solid rgba(216,169,95,.22);
+      object-fit: cover;
+    }
+    .brand-system {
+      padding: clamp(1.25rem, 3vw, 2rem);
+      border: 1px solid rgba(216,169,95,.18);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, rgba(247,236,218,.08), rgba(247,236,218,.035));
+    }
+    .brand-system h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.55rem);
+      line-height: .96;
+      letter-spacing: -.055em;
+    }
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: .65rem;
+      margin-top: 1.3rem;
+    }
+    .swatch {
+      min-height: 104px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      padding: .75rem;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.11);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+      color: white;
+      overflow: hidden;
+    }
+    .swatch b { font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; }
+    .swatch span { margin-top: .2rem; font-size: .72rem; opacity: .78; }
+
+    .contact {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(216,169,95,.14);
+      background:
+        linear-gradient(rgba(9,7,5,.76), rgba(9,7,5,.88)),
+        url("assets/dessert-bar.jpg") center/cover no-repeat;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(1.2rem, 4vw, 3rem);
+      align-items: center;
+    }
+    .contact-card {
+      padding: clamp(1.25rem, 3vw, 2rem);
+      border: 1px solid rgba(216,169,95,.24);
+      border-radius: var(--radius-lg);
+      background: rgba(9,7,5,.62);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+    }
+    .contact-list {
+      display: grid;
+      gap: .75rem;
+      margin: 1.4rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .contact-list li {
+      display: flex;
+      gap: .8rem;
+      align-items: center;
+      color: rgba(247,236,218,.82);
+    }
+    .contact-list svg { flex: 0 0 auto; color: var(--gold); }
+    .reservation-form {
+      display: grid;
+      gap: .85rem;
+    }
+    .field {
+      display: grid;
+      gap: .35rem;
+    }
+    .field label {
+      color: var(--gold-soft);
+      font-size: .76rem;
+      font-weight: 830;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 50px;
+      padding: .86rem .95rem;
+      border: 1px solid rgba(216,169,95,.18);
+      border-radius: 16px;
+      outline: none;
+      background: rgba(247,236,218,.07);
+      color: var(--cream);
+    }
+    .field textarea { min-height: 105px; resize: vertical; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus { border-color: rgba(216,169,95,.55); }
+    .field select option { color: #120c08; }
+
+    .site-footer {
+      padding: 2rem 0 7.2rem;
+      border-top: 1px solid rgba(216,169,95,.14);
+      color: rgba(247,236,218,.62);
+      background: #090705;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .footer-grid a { color: var(--gold-soft); font-weight: 800; }
+
+    .order-tray {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 120;
+      width: min(420px, calc(100vw - 36px));
+      border: 1px solid rgba(216,169,95,.26);
+      border-radius: 26px;
+      background: rgba(12, 8, 6, .84);
+      box-shadow: 0 24px 70px rgba(0,0,0,.48);
+      backdrop-filter: blur(22px);
+      overflow: hidden;
+      transform: translateY(calc(100% - 64px));
+      transition: transform .32s var(--ease);
+    }
+    .order-tray.is-open { transform: translateY(0); }
+    .tray-head {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .75rem .9rem;
+      border-bottom: 1px solid rgba(216,169,95,.14);
+    }
+    .tray-title {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      font-weight: 840;
+    }
+    .tray-count {
+      display: grid;
+      place-items: center;
+      min-width: 30px;
+      height: 30px;
+      padding: 0 .5rem;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #180b05;
+      font-size: .82rem;
+      font-weight: 900;
+    }
+    .tray-toggle {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(216,169,95,.18);
+      border-radius: 14px;
+      background: rgba(247,236,218,.07);
+      color: var(--cream);
+    }
+    .tray-body { padding: .85rem; }
+    .tray-items { display: grid; gap: .6rem; max-height: 280px; overflow: auto; padding-right: .2rem; }
+    .tray-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .65rem;
+      padding: .75rem;
+      border-radius: 16px;
+      background: rgba(247,236,218,.06);
+    }
+    .tray-item b { display: block; font-size: .94rem; }
+    .tray-item span { color: var(--muted); font-size: .82rem; }
+    .qty-control {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+    }
+    .qty-control button {
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(216,169,95,.20);
+      border-radius: 9px;
+      background: rgba(216,169,95,.10);
+      color: var(--cream);
+    }
+    .tray-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-top: .85rem;
+      padding-top: .85rem;
+      border-top: 1px solid rgba(216,169,95,.14);
+      color: var(--gold-soft);
+      font-weight: 880;
+    }
+    .tray-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; margin-top: .85rem; }
+    .tray-empty { color: var(--muted); font-size: .92rem; padding: .5rem; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 98px;
+      z-index: 130;
+      transform: translate(-50%, 18px);
+      opacity: 0;
+      pointer-events: none;
+      padding: .78rem 1rem;
+      border: 1px solid rgba(216,169,95,.30);
+      border-radius: 999px;
+      background: rgba(9,7,5,.82);
+      color: var(--cream);
+      box-shadow: 0 16px 38px rgba(0,0,0,.35);
+      backdrop-filter: blur(16px);
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
+    }
+    [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+
+
+
+    /* === Upgrade premium: conversión, catálogo avanzado y marca === */
+    .status-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      align-items: center;
+      margin-top: 1.1rem;
+      color: rgba(247,236,218,.76);
+      font-size: .93rem;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .48rem .72rem;
+      border: 1px solid rgba(216,169,95,.22);
+      border-radius: 999px;
+      background: rgba(9,7,5,.46);
+      backdrop-filter: blur(14px);
+    }
+    .status-pill strong { color: var(--gold-soft); }
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #80c46f;
+      box-shadow: 0 0 0 6px rgba(128,196,111,.12);
+    }
+    .status-dot.is-closed { background: #d66a4e; box-shadow: 0 0 0 6px rgba(214,106,78,.13); }
+
+    .catalog-action-row,
+    .micro-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: .45rem;
+    }
+    .micro-filters { max-width: 520px; }
+    .quick-filter {
+      padding: .54rem .72rem;
+      border: 1px solid rgba(216,169,95,.16);
+      border-radius: 999px;
+      background: rgba(86,97,60,.14);
+      color: rgba(247,236,218,.78);
+      font-weight: 760;
+      font-size: .78rem;
+      transition: background .2s ease, border-color .2s ease, color .2s ease;
+    }
+    .quick-filter:hover,
+    .quick-filter.is-active { background: rgba(216,169,95,.16); border-color: rgba(216,169,95,.44); color: var(--cream); }
+
+    .menu-card { position: relative; }
+    .card-utility {
+      position: absolute;
+      right: .85rem;
+      top: .85rem;
+      z-index: 2;
+      display: flex;
+      gap: .42rem;
+    }
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(216,169,95,.22);
+      border-radius: 14px;
+      background: rgba(9,7,5,.62);
+      color: var(--cream);
+      box-shadow: 0 10px 24px rgba(0,0,0,.24);
+      backdrop-filter: blur(12px);
+      transition: transform .2s var(--ease), background .2s ease, border-color .2s ease;
+    }
+    .icon-btn:hover { transform: translateY(-2px); border-color: rgba(216,169,95,.52); background: rgba(216,169,95,.16); }
+    .favorite-btn.is-active { color: #ffd37a; background: rgba(216,169,95,.22); }
+    .details-btn { border-color: rgba(216,169,95,.22); background: rgba(247,236,218,.06); }
+
+    .allergen-panel {
+      margin-top: 1.2rem;
+      padding: 1rem;
+      border: 1px solid rgba(216,169,95,.16);
+      border-radius: var(--radius-md);
+      background: rgba(247,236,218,.045);
+      color: var(--muted);
+    }
+    .allergen-panel b { color: var(--cream); }
+    .legend-tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .7rem; }
+
+    .detail-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      background: rgba(4,3,2,.72);
+      backdrop-filter: blur(12px);
+    }
+    .detail-modal[hidden] { display: none; }
+    .detail-card {
+      width: min(760px, 100%);
+      max-height: min(86vh, 820px);
+      overflow: auto;
+      border: 1px solid rgba(216,169,95,.30);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(216,169,95,.12), transparent 30rem),
+        #100a07;
+      box-shadow: 0 36px 100px rgba(0,0,0,.55);
+    }
+    .detail-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: start;
+      padding: 1rem 1rem 0;
+    }
+    .detail-close {
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(216,169,95,.22);
+      border-radius: 15px;
+      background: rgba(247,236,218,.06);
+      color: var(--cream);
+      font-size: 1.35rem;
+    }
+    .detail-content {
+      display: grid;
+      grid-template-columns: .88fr 1.12fr;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .detail-content img {
+      width: 100%;
+      min-height: 360px;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 1px solid rgba(216,169,95,.18);
+    }
+    .detail-info { padding: .4rem .2rem .2rem; }
+    .detail-info h3 {
+      margin: .4rem 0 .4rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: .95;
+      letter-spacing: -.055em;
+    }
+    .detail-price { color: var(--gold-soft); font-weight: 900; font-size: 1.1rem; }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .65rem;
+      margin: 1rem 0;
+    }
+    .detail-kpi {
+      padding: .8rem;
+      border: 1px solid rgba(216,169,95,.14);
+      border-radius: 16px;
+      background: rgba(247,236,218,.055);
+    }
+    .detail-kpi span { display: block; color: var(--gold); font-size: .72rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .detail-kpi b { display: block; margin-top: .25rem; color: var(--cream); }
+
+    .enhanced-section {
+      border-top: 1px solid rgba(216,169,95,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.018), rgba(0,0,0,.10));
+    }
+    .premium-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    .premium-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      border: 1px solid rgba(216,169,95,.18);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(247,236,218,.085), rgba(247,236,218,.035));
+      box-shadow: var(--shadow);
+    }
+    .premium-card::after {
+      content: "";
+      position: absolute;
+      right: -86px;
+      top: -86px;
+      width: 220px;
+      height: 220px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(216,169,95,.17), transparent 68%);
+      pointer-events: none;
+    }
+    .premium-card h2,
+    .premium-card h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: -.05em;
+      line-height: .98;
+    }
+    .premium-card h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+    .premium-card h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    .premium-card p { color: var(--muted); }
+    .benefit-list {
+      display: grid;
+      gap: .65rem;
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .benefit-list li {
+      display: flex;
+      gap: .65rem;
+      align-items: start;
+      color: rgba(247,236,218,.78);
+    }
+    .benefit-list li::before { content: "✦"; color: var(--gold); }
+    .mini-form { display: grid; gap: .75rem; margin-top: 1rem; }
+    .mini-form input {
+      min-height: 50px;
+      padding: .85rem .95rem;
+      border: 1px solid rgba(216,169,95,.18);
+      border-radius: 16px;
+      outline: none;
+      background: rgba(247,236,218,.07);
+      color: var(--cream);
+    }
+    .coupon-box {
+      display: none;
+      margin-top: .85rem;
+      padding: .85rem;
+      border: 1px dashed rgba(216,169,95,.35);
+      border-radius: 16px;
+      color: var(--gold-soft);
+      background: rgba(216,169,95,.08);
+      font-weight: 820;
+    }
+    .coupon-box.is-visible { display: block; }
+    .qr-card {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 1.2rem;
+      align-items: center;
+    }
+    .qr-card img {
+      width: 210px;
+      border-radius: 22px;
+      border: 1px solid rgba(216,169,95,.22);
+      background: var(--cream);
+      box-shadow: 0 18px 42px rgba(0,0,0,.26);
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .testimonial {
+      padding: 1.1rem;
+      border: 1px solid rgba(216,169,95,.16);
+      border-radius: var(--radius-md);
+      background: rgba(247,236,218,.052);
+    }
+    .testimonial p { margin: 0; color: rgba(247,236,218,.82); }
+    .testimonial b { display: block; margin-top: .85rem; color: var(--gold-soft); }
+    .stars { color: var(--gold-soft); letter-spacing: .08em; }
+
+    .quick-actions {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 118;
+      display: grid;
+      gap: .5rem;
+    }
+    .quick-actions a,
+    .quick-actions button {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(216,169,95,.24);
+      border-radius: 17px;
+      background: rgba(9,7,5,.78);
+      color: var(--gold-soft);
+      box-shadow: 0 14px 34px rgba(0,0,0,.32);
+      backdrop-filter: blur(16px);
+      transition: transform .2s var(--ease), background .2s ease;
+    }
+    .quick-actions a:hover,
+    .quick-actions button:hover { transform: translateY(-2px); background: rgba(216,169,95,.14); }
+
+    .tray-recommendations {
+      display: none;
+      margin-top: .85rem;
+      padding: .85rem;
+      border: 1px solid rgba(216,169,95,.13);
+      border-radius: 18px;
+      background: rgba(86,97,60,.13);
+    }
+    .tray-recommendations.is-visible { display: block; }
+    .tray-recommendations b { display: block; color: var(--gold-soft); margin-bottom: .55rem; }
+    .rec-list { display: grid; gap: .45rem; }
+    .rec-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .65rem;
+      color: rgba(247,236,218,.78);
+      font-size: .88rem;
+    }
+    .rec-item button { min-height: 32px; padding: .34rem .6rem; }
+
+    .schedule-table {
+      display: grid;
+      gap: .45rem;
+      margin-top: 1rem;
+    }
+    .schedule-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .7rem .85rem;
+      border-radius: 15px;
+      background: rgba(247,236,218,.055);
+      color: rgba(247,236,218,.78);
+    }
+    .schedule-row strong { color: var(--gold-soft); }
+
+
+
+    /* === Admin premium sin tocar código === */
+    .admin-launcher {
+      position: fixed;
+      right: 18px;
+      bottom: 92px;
+      z-index: 121;
+      min-width: 112px;
+      height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .45rem;
+      border: 1px solid rgba(216,169,95,.30);
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(216,169,95,.18), rgba(9,7,5,.86));
+      color: var(--gold-soft);
+      font-weight: 880;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-size: .76rem;
+      box-shadow: 0 18px 42px rgba(0,0,0,.38);
+      backdrop-filter: blur(18px);
+      transition: transform .22s var(--ease), border-color .22s ease, background .22s ease;
+    }
+    .admin-launcher:hover { transform: translateY(-2px); border-color: rgba(216,169,95,.62); background: rgba(216,169,95,.16); }
+    .admin-launcher::before { content: "⚙"; font-size: 1rem; }
+
+    .admin-panel {
+      position: fixed;
+      inset: 0;
+      z-index: 260;
+      display: grid;
+      place-items: center;
+      padding: 1rem;
+      background: rgba(4,3,2,.74);
+      backdrop-filter: blur(16px);
+    }
+    .admin-panel[hidden] { display: none; }
+    .admin-shell {
+      width: min(1180px, 100%);
+      max-height: min(92vh, 920px);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      border: 1px solid rgba(216,169,95,.30);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(216,169,95,.14), transparent 30rem),
+        radial-gradient(circle at 95% 10%, rgba(86,97,60,.16), transparent 28rem),
+        rgba(12,8,6,.96);
+      box-shadow: 0 42px 110px rgba(0,0,0,.62);
+    }
+    .admin-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 1rem;
+      padding: 1rem 1rem .85rem;
+      border-bottom: 1px solid rgba(216,169,95,.16);
+    }
+    .admin-head h2 {
+      margin: .2rem 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: .95;
+      letter-spacing: -.05em;
+    }
+    .admin-head p { margin: .45rem 0 0; color: var(--muted); font-size: .94rem; }
+    .admin-close {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(216,169,95,.22);
+      border-radius: 16px;
+      background: rgba(247,236,218,.07);
+      color: var(--cream);
+      font-size: 1.35rem;
+    }
+    .admin-body { overflow: auto; padding: 1rem; }
+    .admin-login {
+      width: min(520px, 100%);
+      margin: 1.5rem auto;
+      padding: 1.25rem;
+      border: 1px solid rgba(216,169,95,.18);
+      border-radius: 24px;
+      background: rgba(247,236,218,.055);
+    }
+    .admin-login h3,
+    .admin-editor h3 {
+      margin: 0 0 .8rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.6rem;
+      letter-spacing: -.04em;
+    }
+    .admin-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      margin-bottom: 1rem;
+    }
+    .admin-toolbar-left,
+    .admin-toolbar-right { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+    .admin-search,
+    .admin-input,
+    .admin-select,
+    .admin-textarea {
+      width: 100%;
+      min-height: 44px;
+      padding: .78rem .9rem;
+      border: 1px solid rgba(216,169,95,.18);
+      border-radius: 15px;
+      outline: none;
+      background: rgba(247,236,218,.07);
+      color: var(--cream);
+    }
+    .admin-search { width: min(340px, 100%); border-radius: 999px; }
+    .admin-input:focus,
+    .admin-select:focus,
+    .admin-textarea:focus,
+    .admin-search:focus { border-color: rgba(216,169,95,.55); }
+    .admin-select option { color: #120c08; }
+    .admin-textarea { min-height: 92px; resize: vertical; }
+    .admin-workspace {
+      display: grid;
+      grid-template-columns: 360px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .admin-list-card,
+    .admin-editor {
+      border: 1px solid rgba(216,169,95,.16);
+      border-radius: 24px;
+      background: rgba(247,236,218,.045);
+      overflow: hidden;
+    }
+    .admin-list-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: .65rem;
+      padding: .85rem;
+      border-bottom: 1px solid rgba(216,169,95,.12);
+    }
+    .admin-stat {
+      padding: .32rem .58rem;
+      border-radius: 999px;
+      background: rgba(216,169,95,.12);
+      color: var(--gold-soft);
+      font-size: .78rem;
+      font-weight: 820;
+    }
+    .admin-product-list {
+      max-height: 588px;
+      overflow: auto;
+      padding: .55rem;
+      display: grid;
+      gap: .45rem;
+    }
+    .admin-product-item {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 46px 1fr auto;
+      align-items: center;
+      gap: .65rem;
+      padding: .55rem;
+      border: 1px solid transparent;
+      border-radius: 16px;
+      background: rgba(9,7,5,.28);
+      color: var(--cream);
+      text-align: left;
+      transition: border-color .2s ease, background .2s ease;
+    }
+    .admin-product-item:hover,
+    .admin-product-item.is-active { border-color: rgba(216,169,95,.38); background: rgba(216,169,95,.10); }
+    .admin-product-item img { width: 46px; height: 46px; border-radius: 12px; object-fit: cover; border: 1px solid rgba(216,169,95,.16); }
+    .admin-product-item b { display: block; font-size: .9rem; line-height: 1.1; }
+    .admin-product-item span { display: block; color: var(--muted); font-size: .76rem; margin-top: .18rem; }
+    .admin-product-item em { color: var(--gold-soft); font-style: normal; font-size: .76rem; font-weight: 850; }
+    .admin-editor { padding: 1rem; }
+    .admin-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .85rem;
+    }
+    .admin-field { display: grid; gap: .35rem; }
+    .admin-field.full { grid-column: 1 / -1; }
+    .admin-field label {
+      color: var(--gold-soft);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .admin-field small { color: rgba(247,236,218,.50); font-size: .76rem; }
+    .admin-checkbox-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+      padding: .78rem .9rem;
+      border: 1px solid rgba(216,169,95,.14);
+      border-radius: 15px;
+      background: rgba(247,236,218,.045);
+    }
+    .admin-preview {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: .85rem;
+      align-items: center;
+      margin: .9rem 0;
+      padding: .75rem;
+      border: 1px solid rgba(216,169,95,.14);
+      border-radius: 18px;
+      background: rgba(9,7,5,.30);
+    }
+    .admin-preview img { width: 112px; height: 84px; object-fit: cover; border-radius: 14px; border: 1px solid rgba(216,169,95,.18); }
+    .admin-preview b { display: block; }
+    .admin-preview span { color: var(--muted); font-size: .86rem; }
+    .admin-editor-actions,
+    .admin-bulk,
+    .admin-json-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      align-items: center;
+      margin-top: .9rem;
+    }
+    .admin-bulk {
+      padding-top: .9rem;
+      border-top: 1px solid rgba(216,169,95,.13);
+    }
+    .admin-bulk input { max-width: 150px; }
+    .admin-json-box { display: none; margin-top: .9rem; }
+    .admin-json-box.is-visible { display: block; }
+    .admin-status {
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    @media (max-width: 980px) {
+      .admin-workspace { grid-template-columns: 1fr; }
+      .admin-product-list { max-height: 320px; }
+      .admin-form-grid { grid-template-columns: 1fr; }
+      .admin-search { width: 100%; }
+      .admin-toolbar-left,
+      .admin-toolbar-right { width: 100%; }
+      .admin-launcher { right: 14px; bottom: 148px; min-width: 94px; }
+    }
+
+    @media print {
+      body { background: #fff !important; color: #1b0d06 !important; }
+      .site-header, .hero, #concepto, #especialidades, #marca, #reservas, .site-footer, .order-tray, .toast, .quick-actions, .admin-launcher, .admin-panel, .catalog-tools, .allergen-panel, .btn, .card-utility { display: none !important; }
+      section { padding: 0 !important; }
+      .container { width: 100% !important; }
+      .catalog-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+      .menu-card { break-inside: avoid; border: 1px solid #d8a95f !important; background: #fff !important; box-shadow: none !important; }
+      .menu-media { display: none !important; }
+      .menu-card h3, .price, .section-title { color: #1b0d06 !important; }
+      .menu-card p, .tag, .calories { color: #4b3528 !important; }
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        position: fixed;
+        left: 18px;
+        right: 18px;
+        top: 86px;
+        display: grid;
+        justify-content: stretch;
+        gap: .35rem;
+        padding: .75rem;
+        border-radius: 24px;
+        background: rgba(9,7,5,.92);
+        box-shadow: var(--shadow);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity .2s ease, transform .2s ease;
+      }
+      body.menu-open .nav-links { opacity: 1; pointer-events: auto; transform: translateY(0); }
+      .nav-links a { text-align: center; }
+      .menu-toggle { display: block; }
+      .nav-actions .btn { display: none; }
+      .hero-grid,
+      .intro-grid,
+      .pairing-grid,
+      .profile-showcase,
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero-panel { max-width: 520px; }
+      .showcase-grid { grid-template-columns: 1fr; }
+      .feature-card,
+      .feature-card img { min-height: 360px; }
+      .catalog-header { display: grid; }
+      .catalog-tools { justify-items: stretch; min-width: 0; }
+      .catalog-action-row,
+      .micro-filters,
+      .tabs { justify-content: flex-start; }
+      .premium-grid-2,
+      .detail-content,
+      .qr-card { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .qr-card img { width: min(260px, 100%); }
+      .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .brand-name span { display: none; }
+      .hero { padding-top: 104px; }
+      .hero h1 { font-size: clamp(3.1rem, 18vw, 5.2rem); }
+      .hero-meta,
+      .experience-grid,
+      .catalog-grid,
+      .palette { grid-template-columns: 1fr; }
+      .hero-ctas .btn { width: 100%; }
+      .panel-badge { right: 16px; top: 18px; width: 86px; height: 86px; font-size: 1.35rem; }
+      .signature-body h2 { font-size: 1.45rem; }
+      .tabs { overflow: auto; flex-wrap: nowrap; padding-bottom: .25rem; }
+      .tab { white-space: nowrap; }
+      .tray-actions { grid-template-columns: 1fr; }
+      /* Las acciones rápidas (WhatsApp, Instagram, mapa, imprimir) ya están en nav, hero, contacto y catálogo: se ocultan en mobile para despejar las tarjetas. */
+      .quick-actions { display: none; }
+      .detail-content img { min-height: 240px; }
+      .site-footer { padding-bottom: 6.4rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      [data-reveal] { opacity: 1; transform: none; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "ANTARESa",
+    "servesCuisine": ["Café de especialidad", "Brunch", "Pastelería", "Cocina urbana"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Dirección a confirmar",
+      "addressLocality": "Buenos Aires",
+      "addressRegion": "CABA",
+      "addressCountry": "AR"
+    },
+    "priceRange": "$$$",
+    "url": "https://antaresa.com/menu",
+    "sameAs": ["https://instagram.com/antaresa.cafe"],
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "07:30", "closes": "23:00"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "07:30", "closes": "00:30"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "08:00", "closes": "20:00"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#catalogo">Saltar al catálogo</a>
+
+  <header class="site-header" aria-label="Navegación principal">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="ANTARESa inicio">
+        <img class="brand-logo" src="assets/profile-antaresa.png" alt="Isotipo premium ANTARESa" width="96" height="96" />
+        <span class="brand-name"><strong>ANTARESa</strong><span>Resto · Café</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Secciones">
+        <a href="#concepto">Concepto</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#marca">Marca</a>
+        <a href="#reservas">Reservas</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary btn-mini nav-whatsapp" href="#" data-whatsapp="general">WhatsApp</a>
+        <a class="btn btn-secondary btn-mini" href="#reservas">Reservar</a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="navLinks" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-label="Presentación ANTARESa">
+      <div class="container hero-grid">
+        <div data-reveal>
+          <span class="hero-kicker"><i class="pulse-dot" aria-hidden="true"></i> Catálogo digital premium</span>
+          <h1>Resto Café <span class="mark">de autor</span></h1>
+          <p>Una carta visual para descubrir cafés de especialidad, cocina urbana elegante, pastelería artesanal y rituales de sobremesa con identidad cálida, nocturna y sofisticada.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
+            <a class="btn btn-secondary" href="#" data-whatsapp="general">Pedir por WhatsApp</a>
+            <a class="btn btn-secondary" href="#especialidades">Explorar experiencias</a>
+          </div>
+          <div class="status-line" aria-label="Estado y canales de atención">
+            <span class="status-pill"><i class="status-dot" id="openStatusDot" aria-hidden="true"></i><strong id="openStatusText">Calculando horario...</strong></span>
+            <span class="status-pill" id="todaySchedule">Horario de hoy disponible en breve</span>
+            <a class="status-pill" href="#" data-map-link>Ver ubicación</a>
+          </div>
+          <div class="hero-meta" aria-label="Datos destacados">
+            <div class="meta-card"><b>07:30</b><span>Apertura diaria con café de origen y panadería fresca.</span></div>
+            <div class="meta-card"><b>+32</b><span>Selección curada entre bebidas, platos y dulces.</span></div>
+            <div class="meta-card"><b>Chef</b><span>Menú pensado para brunch, almuerzo y aperitivo.</span></div>
+          </div>
+        </div>
+
+        <aside class="hero-panel" data-reveal aria-label="Recomendación del día">
+          <div class="signature-card">
+            <img src="assets/food-brunch.jpg" alt="Brunch premium con tostadas, huevos y vegetales" />
+            <div class="signature-body">
+              <small>Recomendado de la casa</small>
+              <h2>Brunch Antaresa</h2>
+              <p>Huevos poché, pan de masa madre, palta especiada, tomates confitados y flat white de origen.</p>
+            </div>
+          </div>
+          <div class="panel-badge">A<span>signature</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="concepto">
+      <div class="container intro-grid">
+        <div data-reveal>
+          <p class="eyebrow">Concepto</p>
+          <h2 class="section-title">Lujo cálido, café preciso y cocina con memoria urbana.</h2>
+          <p class="section-copy">ANTARESa combina una estética espresso, cobre y oliva con una carta directa, fotogénica y fácil de navegar. La experiencia prioriza claridad comercial sin perder encanto gastronómico.</p>
+        </div>
+        <div class="story-card" data-reveal>
+          <blockquote>“Cada producto debe sentirse elegido: desde el primer aroma de café hasta el último brillo de una copa.”</blockquote>
+          <cite>Manifiesto de marca · ANTARESa</cite>
+        </div>
+      </div>
+    </section>
+
+    <section id="especialidades" class="showcase">
+      <div class="container">
+        <div data-reveal>
+          <p class="eyebrow">Experiencias</p>
+          <h2 class="section-title">Momentos diseñados para vender con deseo.</h2>
+          <p class="section-copy">El catálogo ordena la carta en ocasiones de consumo: café de mañana, brunch, almuerzo liviano, merienda premium y barra de aperitivos.</p>
+        </div>
+
+        <div class="showcase-grid">
+          <article class="feature-card" data-reveal>
+            <img src="assets/coffee-drinks.jpg" alt="Cafés de especialidad y bebidas artesanales" />
+            <div class="feature-content">
+              <span>Bebidas</span>
+              <h3>Café, mocktails y copa.</h3>
+              <p>Recetas limpias, refrescantes y de barra para todo el día.</p>
+            </div>
+          </article>
+          <article class="feature-card" data-reveal>
+            <img src="assets/food-brunch.jpg" alt="Platos salados de brunch y cocina resto café" />
+            <div class="feature-content">
+              <span>Comidas</span>
+              <h3>Brunch & cocina urbana.</h3>
+              <p>Platos nobles, con producto de estación y terminación de chef.</p>
+            </div>
+          </article>
+          <article class="feature-card" data-reveal>
+            <img src="assets/dessert-bar.jpg" alt="Pastelería fina, croissants y postres" />
+            <div class="feature-content">
+              <span>Pastelería</span>
+              <h3>Dulces con firma propia.</h3>
+              <p>Piezas de vitrina pensadas para acompañar café y sobremesa.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalogo">
+      <div class="container">
+        <div class="catalog-header" data-reveal>
+          <div>
+            <p class="eyebrow">Catálogo digital</p>
+            <h2 class="section-title">Carta curada ANTARESa.</h2>
+            <p class="section-copy">Filtrá por categoría, buscá por ingrediente y armá una selección estimativa para compartir o pedir en mesa.</p>
+          </div>
+          <div class="catalog-tools">
+            <div class="search-wrap">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <input id="searchInput" type="search" placeholder="Buscar: café, palta, croissant..." autocomplete="off" />
+            </div>
+            <div class="tabs" role="tablist" aria-label="Filtros de catálogo">
+              <button class="tab is-active" type="button" data-filter="all">Todo</button>
+              <button class="tab" type="button" data-filter="bebidas">Bebidas</button>
+              <button class="tab" type="button" data-filter="comidas">Comidas</button>
+              <button class="tab" type="button" data-filter="brunch">Brunch</button>
+              <button class="tab" type="button" data-filter="pasteleria">Pastelería</button>
+              <button class="tab" type="button" data-filter="autor">De autor</button>
+            </div>
+            <div class="micro-filters" aria-label="Filtros inteligentes">
+              <button class="quick-filter" type="button" data-smart-filter="vegetariano veggie plant based">Veggie</button>
+              <button class="quick-filter" type="button" data-smart-filter="sin alcohol 0.0 mocktail">0.0 alcohol</button>
+              <button class="quick-filter" type="button" data-smart-filter="best seller chef recomienda signature">Favoritos</button>
+              <button class="quick-filter" type="button" data-smart-filter="sin harina liviano fresco">Livianos</button>
+            </div>
+            <div class="catalog-action-row">
+              <button class="btn btn-secondary btn-mini" type="button" id="printMenu">Imprimir carta</button>
+              <a class="btn btn-secondary btn-mini" href="#qr-mesa">QR de mesa</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid" aria-live="polite">
+          <article class="menu-card" data-category="bebidas autor" data-name="Espresso Origen Norte" data-price="3900" data-search="espresso cafe origen norte intenso chocolate citrico">
+            <div class="menu-media"><img src="assets/coffee-drinks.jpg" alt="Espresso de origen" /><span class="menu-pill">Bebidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Espresso Origen Norte</h3><span class="price">AR$ 3.900</span></div><p>Extracción precisa, notas a cacao, panela y final cítrico sutil.</p><div class="tags"><span class="tag">Café de especialidad</span><span class="tag">Intenso</span></div><div class="menu-bottom"><span class="calories">55 ml</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="bebidas brunch" data-name="Flat White Antaresa" data-price="4600" data-search="flat white latte cafe leche microespuma brunch">
+            <div class="menu-media"><img src="assets/coffee-drinks.jpg" alt="Flat white con latte art" /><span class="menu-pill">Bebidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Flat White ANTARESa</h3><span class="price">AR$ 4.600</span></div><p>Doble ristretto, leche texturizada y balance sedoso de la casa.</p><div class="tags"><span class="tag">Suave</span><span class="tag">Latte art</span></div><div class="menu-bottom"><span class="calories">180 ml</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="bebidas autor" data-name="Iced Tonic Espresso" data-price="5400" data-search="iced tonic espresso cafe frio tonica citrico bebida autor">
+            <div class="menu-media"><img src="assets/coffee-drinks.jpg" alt="Iced tonic espresso" /><span class="menu-pill">Bebidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Iced Tonic Espresso</h3><span class="price">AR$ 5.400</span></div><p>Tónica premium, espresso frío, piel de naranja y hielo cristalino.</p><div class="tags"><span class="tag">Refrescante</span><span class="tag">Signature</span></div><div class="menu-bottom"><span class="calories">Sin alcohol</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="bebidas autor" data-name="Spritz de Estación" data-price="6900" data-search="spritz aperitivo naranja pomelo hierbas copa mocktail cocktail">
+            <div class="menu-media"><img src="assets/coffee-drinks.jpg" alt="Spritz de estación en copa" /><span class="menu-pill">Barra</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Spritz de Estación</h3><span class="price">AR$ 6.900</span></div><p>Pomelo rosado, naranja, hierbas frescas y burbujas secas.</p><div class="tags"><span class="tag">Aperitivo</span><span class="tag">Versión 0.0</span></div><div class="menu-bottom"><span class="calories">Copa</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas brunch autor" data-name="Brunch Antaresa" data-price="13900" data-search="brunch huevos poche palta masa madre tomate flat white">
+            <div class="menu-media"><img src="assets/food-brunch.jpg" alt="Brunch Antaresa" /><span class="menu-pill">Brunch</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Brunch ANTARESa</h3><span class="price">AR$ 13.900</span></div><p>Huevos poché, palta especiada, tomates confitados y pan de masa madre.</p><div class="tags"><span class="tag">Chef recomienda</span><span class="tag">Todo el día</span></div><div class="menu-bottom"><span class="calories">Incluye café</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas brunch" data-name="Tostón de Palta y Lima" data-price="8900" data-search="toston palta lima cilantro masa madre semillas brunch vegetariano">
+            <div class="menu-media"><img src="assets/food-brunch.jpg" alt="Tostón de palta" /><span class="menu-pill">Comidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Tostón de Palta & Lima</h3><span class="price">AR$ 8.900</span></div><p>Masa madre tostada, palta cremosa, lima, cilantro y semillas tostadas.</p><div class="tags"><span class="tag">Vegetariano</span><span class="tag">Fresco</span></div><div class="menu-bottom"><span class="calories">Opción huevo</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas autor" data-name="Pastrami de la Casa" data-price="12400" data-search="sandwich pastrami pepino mostaza pan brioche papas rusticas">
+            <div class="menu-media"><img src="assets/food-brunch.jpg" alt="Sándwich gourmet de pastrami" /><span class="menu-pill">Comidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Pastrami de la Casa</h3><span class="price">AR$ 12.400</span></div><p>Pan brioche, pastrami tibio, pepinos encurtidos, mostaza antigua y papas rústicas.</p><div class="tags"><span class="tag">Gourmet</span><span class="tag">Almuerzo</span></div><div class="menu-bottom"><span class="calories">Con guarnición</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas" data-name="Bowl Mediterráneo" data-price="9800" data-search="bowl mediterraneo quinoa vegetales hummus oliva ensalada vegan">
+            <div class="menu-media"><img src="assets/food-brunch.jpg" alt="Bowl mediterráneo con vegetales" /><span class="menu-pill">Comidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Bowl Mediterráneo</h3><span class="price">AR$ 9.800</span></div><p>Quinoa, vegetales asados, hummus de garbanzo, verdes y aceite de oliva.</p><div class="tags"><span class="tag">Veggie</span><span class="tag">Liviano</span></div><div class="menu-bottom"><span class="calories">Plant based</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas autor" data-name="Milanesa Porteña Premium" data-price="14800" data-search="milanesa portena premium rucula parmesano limon papas resto">
+            <div class="menu-media"><img src="assets/food-brunch.jpg" alt="Plato de cocina urbana premium" /><span class="menu-pill">Comidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Milanesa Porteña Premium</h3><span class="price">AR$ 14.800</span></div><p>Crocante fina, rúcula, parmesano, limón quemado y papas rotas con alioli.</p><div class="tags"><span class="tag">Clásico elevado</span><span class="tag">Compartible</span></div><div class="menu-bottom"><span class="calories">Plato fuerte</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="pasteleria brunch autor" data-name="Croissant de Pistacho" data-price="6200" data-search="croissant pistacho crema pastelera hojaldre pasteleria cafe">
+            <div class="menu-media"><img src="assets/dessert-bar.jpg" alt="Croissant de pistacho" /><span class="menu-pill">Pastelería</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Croissant de Pistacho</h3><span class="price">AR$ 6.200</span></div><p>Hojaldre laminado, crema de pistacho, praliné y flor de sal.</p><div class="tags"><span class="tag">Artesanal</span><span class="tag">Best seller</span></div><div class="menu-bottom"><span class="calories">Edición limitada</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="pasteleria" data-name="Torta Húmeda de Chocolate" data-price="5900" data-search="torta humeda chocolate cacao ganache postre pasteleria">
+            <div class="menu-media"><img src="assets/dessert-bar.jpg" alt="Torta húmeda de chocolate" /><span class="menu-pill">Pastelería</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Torta Húmeda de Chocolate</h3><span class="price">AR$ 5.900</span></div><p>Cacao intenso, ganache brillante y crema apenas batida.</p><div class="tags"><span class="tag">Intensa</span><span class="tag">Sin harina</span></div><div class="menu-bottom"><span class="calories">Porción</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="pasteleria autor" data-name="Cheesecake Cítrico" data-price="5700" data-search="cheesecake citrico frutos rojos lima limon postre">
+            <div class="menu-media"><img src="assets/dessert-bar.jpg" alt="Cheesecake cítrico" /><span class="menu-pill">Pastelería</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Cheesecake Cítrico</h3><span class="price">AR$ 5.700</span></div><p>Base crocante, crema suave, curd de limón y compota de frutos rojos.</p><div class="tags"><span class="tag">Equilibrado</span><span class="tag">Para compartir</span></div><div class="menu-bottom"><span class="calories">Porción</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="bebidas autor" data-name="Cold Brew Naranja & Canela" data-price="5600" data-search="cold brew cafe naranja canela frio bebida autor signature">
+            <div class="menu-media"><img src="assets/menu-cold-brew-naranja.jpg" alt="Cold brew con naranja y canela" /><span class="menu-pill">Bebidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Cold Brew Naranja & Canela</h3><span class="price">AR$ 5.600</span></div><p>Café frío de larga extracción, piel de naranja, canela y hielo cristalino.</p><div class="tags"><span class="tag">Frío</span><span class="tag">Signature</span></div><div class="menu-bottom"><span class="calories">300 ml</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="bebidas brunch" data-name="Matcha Latte Ceremonial" data-price="5900" data-search="matcha latte ceremonial te verde leche microespuma brunch">
+            <div class="menu-media"><img src="assets/menu-matcha-latte.jpg" alt="Matcha latte ceremonial" /><span class="menu-pill">Bebidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Matcha Latte Ceremonial</h3><span class="price">AR$ 5.900</span></div><p>Matcha ceremonial batido, leche texturizada y final vegetal elegante.</p><div class="tags"><span class="tag">Ceremonial</span><span class="tag">Suave</span></div><div class="menu-bottom"><span class="calories">220 ml</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="bebidas" data-name="Chai Especiado ANTARESa" data-price="5200" data-search="chai latte especias canela cardamomo bebida caliente">
+            <div class="menu-media"><img src="assets/menu-chai-especiado.jpg" alt="Chai latte especiado" /><span class="menu-pill">Bebidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Chai Especiado ANTARESa</h3><span class="price">AR$ 5.200</span></div><p>Infusión especiada con canela, cardamomo, jengibre y leche cremosa.</p><div class="tags"><span class="tag">Especiado</span><span class="tag">Caliente</span></div><div class="menu-bottom"><span class="calories">240 ml</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="bebidas" data-name="Limonada de Frutos Rojos" data-price="4900" data-search="limonada frutos rojos menta bebida sin alcohol refrescante">
+            <div class="menu-media"><img src="assets/menu-limonada-frutos-rojos.jpg" alt="Limonada con frutos rojos y menta" /><span class="menu-pill">Bebidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Limonada de Frutos Rojos</h3><span class="price">AR$ 4.900</span></div><p>Limón natural, frutos rojos, menta fresca y burbujas suaves.</p><div class="tags"><span class="tag">Sin alcohol</span><span class="tag">Fresco</span></div><div class="menu-bottom"><span class="calories">350 ml</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="bebidas comidas autor" data-name="Copa Malbec & Tapas" data-price="9600" data-search="malbec vino copa tapas queso aceitunas aperitivo">
+            <div class="menu-media"><img src="assets/menu-copa-malbec-tapas.jpg" alt="Copa de Malbec con tabla de tapas" /><span class="menu-pill">Aperitivo</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Copa Malbec & Tapas</h3><span class="price">AR$ 9.600</span></div><p>Copa de Malbec seleccionada con bocados salados, aceitunas y quesos.</p><div class="tags"><span class="tag">Aperitivo</span><span class="tag">Maridaje</span></div><div class="menu-bottom"><span class="calories">Copa + tapas</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas brunch autor" data-name="Shakshuka de la Casa" data-price="11800" data-search="shakshuka huevos tomate pimientos brunch vegetariano">
+            <div class="menu-media"><img src="assets/menu-shakshuka.jpg" alt="Shakshuka con huevos y salsa de tomate" /><span class="menu-pill">Brunch</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Shakshuka de la Casa</h3><span class="price">AR$ 11.800</span></div><p>Huevos sobre salsa especiada de tomate y pimientos, hierbas y pan tostado.</p><div class="tags"><span class="tag">Vegetariano</span><span class="tag">Brunch</span></div><div class="menu-bottom"><span class="calories">Sartén</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas brunch autor" data-name="Croque Madame Premium" data-price="11900" data-search="croque madame sandwich huevo bechamel brunch frances">
+            <div class="menu-media"><img src="assets/menu-croque-madame.jpg" alt="Croque madame con huevo y guarnición" /><span class="menu-pill">Brunch</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Croque Madame Premium</h3><span class="price">AR$ 11.900</span></div><p>Pan dorado, queso fundido, bechamel sedosa, huevo y verdes frescos.</p><div class="tags"><span class="tag">Francés</span><span class="tag">Con huevo</span></div><div class="menu-bottom"><span class="calories">Plato</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas brunch autor" data-name="Bagel de Salmón Ahumado" data-price="12800" data-search="bagel salmon ahumado queso crema alcaparras brunch">
+            <div class="menu-media"><img src="assets/menu-bagel-salmon.jpg" alt="Bagel con salmón ahumado" /><span class="menu-pill">Brunch</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Bagel de Salmón Ahumado</h3><span class="price">AR$ 12.800</span></div><p>Bagel tostado, salmón ahumado, queso crema, alcaparras, cebolla y limón.</p><div class="tags"><span class="tag">Premium</span><span class="tag">Fresco</span></div><div class="menu-bottom"><span class="calories">Bagel</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas brunch autor" data-name="Omelette Trufado" data-price="10400" data-search="omelette trufado hongos parmesano brunch huevo">
+            <div class="menu-media"><img src="assets/menu-omelette-trufado.jpg" alt="Omelette trufado con hongos" /><span class="menu-pill">Comidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Omelette Trufado</h3><span class="price">AR$ 10.400</span></div><p>Omelette francés con hongos, parmesano, verdes y perfume de trufa.</p><div class="tags"><span class="tag">Trufa</span><span class="tag">Brunch</span></div><div class="menu-bottom"><span class="calories">Liviano</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas" data-name="Focaccia Caprese" data-price="9700" data-search="focaccia caprese tomate mozzarella burrata albahaca vegetariano">
+            <div class="menu-media"><img src="assets/menu-focaccia-caprese.jpg" alt="Focaccia caprese con tomate y mozzarella" /><span class="menu-pill">Comidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Focaccia Caprese</h3><span class="price">AR$ 9.700</span></div><p>Focaccia artesanal con tomate, mozzarella, albahaca y aceite de oliva.</p><div class="tags"><span class="tag">Vegetariano</span><span class="tag">Mediterráneo</span></div><div class="menu-bottom"><span class="calories">Porción</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas autor" data-name="Polenta Cremosa & Hongos" data-price="10200" data-search="polenta cremosa hongos champignones vegetariano sin harina">
+            <div class="menu-media"><img src="assets/menu-hongos-polenta.jpg" alt="Polenta cremosa con hongos" /><span class="menu-pill">Comidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Polenta Cremosa & Hongos</h3><span class="price">AR$ 10.200</span></div><p>Polenta cremosa, hongos salteados, parmesano y aceite de hierbas.</p><div class="tags"><span class="tag">Veggie</span><span class="tag">Sin harina</span></div><div class="menu-bottom"><span class="calories">Bowl</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas autor" data-name="Risotto de Hongos" data-price="13600" data-search="risotto hongos porcini parmesano arroz comida autor">
+            <div class="menu-media"><img src="assets/menu-risotto-hongos.jpg" alt="Risotto de hongos" /><span class="menu-pill">Comidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Risotto de Hongos</h3><span class="price">AR$ 13.600</span></div><p>Arroz cremoso, hongos, parmesano estacionado y fondo vegetal intenso.</p><div class="tags"><span class="tag">Cremoso</span><span class="tag">De autor</span></div><div class="menu-bottom"><span class="calories">Plato</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas autor" data-name="Burger Bistro ANTARESa" data-price="14900" data-search="burger hamburguesa brioche queso cebolla papas bistro">
+            <div class="menu-media"><img src="assets/menu-burger-bistro.jpg" alt="Burger bistro con papas" /><span class="menu-pill">Comidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Burger Bistro ANTARESa</h3><span class="price">AR$ 14.900</span></div><p>Brioche, medallón sellado, queso, cebolla caramelizada, alioli y papas.</p><div class="tags"><span class="tag">Bistro</span><span class="tag">Con papas</span></div><div class="menu-bottom"><span class="calories">Plato fuerte</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas" data-name="Ensalada de Peras & Azul" data-price="9300" data-search="ensalada peras queso azul nueces verdes miel liviano vegetariano">
+            <div class="menu-media"><img src="assets/menu-ensalada-peras-azules.jpg" alt="Ensalada de peras, queso azul y nueces" /><span class="menu-pill">Comidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Ensalada de Peras & Azul</h3><span class="price">AR$ 9.300</span></div><p>Verdes, peras asadas, queso azul, nueces y vinagreta de miel.</p><div class="tags"><span class="tag">Liviano</span><span class="tag">Veggie</span></div><div class="menu-bottom"><span class="calories">Ensalada</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="comidas" data-name="Sopa de Calabaza Asada" data-price="7600" data-search="sopa calabaza asada semillas crema liviano vegetariano">
+            <div class="menu-media"><img src="assets/menu-sopa-calabaza.jpg" alt="Sopa cremosa de calabaza asada" /><span class="menu-pill">Comidas</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Sopa de Calabaza Asada</h3><span class="price">AR$ 7.600</span></div><p>Crema aterciopelada de calabaza asada, semillas tostadas y crocante.</p><div class="tags"><span class="tag">Comfort</span><span class="tag">Liviano</span></div><div class="menu-bottom"><span class="calories">Bowl</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="pasteleria" data-name="Carrot Cake de la Casa" data-price="5900" data-search="carrot cake zanahoria nueces frosting pasteleria">
+            <div class="menu-media"><img src="assets/menu-carrot-cake.jpg" alt="Carrot cake con frosting" /><span class="menu-pill">Pastelería</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Carrot Cake de la Casa</h3><span class="price">AR$ 5.900</span></div><p>Bizcocho húmedo de zanahoria, nueces, especias y frosting cítrico.</p><div class="tags"><span class="tag">Especiado</span><span class="tag">Clásico</span></div><div class="menu-bottom"><span class="calories">Porción</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="pasteleria autor" data-name="Tiramisú al Café" data-price="6400" data-search="tiramisu cafe mascarpone cacao postre pasteleria autor">
+            <div class="menu-media"><img src="assets/menu-tiramisu-cafe.jpg" alt="Tiramisú al café" /><span class="menu-pill">Pastelería</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Tiramisú al Café</h3><span class="price">AR$ 6.400</span></div><p>Mascarpone, vainillas embebidas en espresso y cacao amargo.</p><div class="tags"><span class="tag">Café</span><span class="tag">Italiano</span></div><div class="menu-bottom"><span class="calories">Porción</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="pasteleria autor" data-name="Pavlova de Frutos Rojos" data-price="6900" data-search="pavlova frutos rojos merengue crema postre pasteleria">
+            <div class="menu-media"><img src="assets/menu-pavlova-frutos-rojos.jpg" alt="Pavlova con frutos rojos" /><span class="menu-pill">Pastelería</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Pavlova de Frutos Rojos</h3><span class="price">AR$ 6.900</span></div><p>Merengue crocante, crema suave, frutos rojos y coulis brillante.</p><div class="tags"><span class="tag">Ligero</span><span class="tag">Frutal</span></div><div class="menu-bottom"><span class="calories">Porción</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="pasteleria autor" data-name="Alfajor Sablé Premium" data-price="5200" data-search="alfajor sable dulce de leche chocolate argentino pasteleria">
+            <div class="menu-media"><img src="assets/menu-alfajor-sable.jpg" alt="Alfajor sablé con dulce de leche" /><span class="menu-pill">Pastelería</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Alfajor Sablé Premium</h3><span class="price">AR$ 5.200</span></div><p>Galleta sablé, dulce de leche, baño de chocolate y terminación delicada.</p><div class="tags"><span class="tag">Argentino</span><span class="tag">Premium</span></div><div class="menu-bottom"><span class="calories">Unidad</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <article class="menu-card" data-category="pasteleria" data-name="Panna Cotta de Vainilla" data-price="6100" data-search="panna cotta vainilla frutos rojos citrico postre">
+            <div class="menu-media"><img src="assets/menu-panna-cotta.jpg" alt="Panna cotta de vainilla con fruta" /><span class="menu-pill">Pastelería</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>Panna Cotta de Vainilla</h3><span class="price">AR$ 6.100</span></div><p>Vainilla cremosa, compota cítrica, crumble de pistacho y fruta fresca.</p><div class="tags"><span class="tag">Cremoso</span><span class="tag">Elegante</span></div><div class="menu-bottom"><span class="calories">Porción</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>
+
+          <div class="empty-state" id="emptyState">No encontramos productos con ese filtro. Probá con “café”, “brunch”, “palta” o “chocolate”.</div>
+        </div>
+        <aside class="allergen-panel" data-reveal>
+          <b>Guía rápida:</b> los tags ayudan a elegir mejor. La información de alérgenos se muestra en el detalle de cada producto y puede ajustarse según cocina real.
+          <div class="legend-tags">
+            <span class="tag">Veggie</span><span class="tag">Sin alcohol</span><span class="tag">Plant based</span><span class="tag">Sin harina</span><span class="tag">Best seller</span><span class="tag">Chef recomienda</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section aria-label="Maridajes sugeridos">
+      <div class="container pairing-grid">
+        <div class="pairing-card" data-reveal>
+          <p class="eyebrow">Maridajes</p>
+          <h2>Combinaciones de alto ticket, listas para recomendar.</h2>
+          <p>Las sugerencias ayudan a elevar el consumo promedio y a guiar al cliente con una narrativa de sabor coherente.</p>
+          <div class="pairing-list">
+            <div class="pairing-row"><div><b>Flat White + Croissant Pistacho</b><span>Textura sedosa y final dulce salino.</span></div><em>AR$ 10.800</em></div>
+            <div class="pairing-row"><div><b>Brunch ANTARESa + Iced Tonic</b><span>Frescura, acidez y plato completo.</span></div><em>AR$ 19.300</em></div>
+            <div class="pairing-row"><div><b>Pastrami + Spritz de estación</b><span>Sal, grasa noble y burbujas secas.</span></div><em>AR$ 19.300</em></div>
+          </div>
+        </div>
+        <div class="experience-grid" data-reveal>
+          <article class="experience"><span class="icon">☕</span><h3>Mañanas precisas</h3><p>Café de especialidad, laminados y piezas simples para un ticket rápido pero premium.</p></article>
+          <article class="experience"><span class="icon">🍳</span><h3>Brunch de autor</h3><p>Platos visuales, abundantes y pensados para compartir en redes.</p></article>
+          <article class="experience"><span class="icon">🍷</span><h3>Aperitivo urbano</h3><p>Spritz, vinos por copa y bites salados para tarde-noche.</p></article>
+          <article class="experience"><span class="icon">🍰</span><h3>Sobremesa dulce</h3><p>Pastelería de vitrina con estética de joyería gastronómica.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="marca">
+      <div class="container profile-showcase">
+        <div class="profile-card" data-reveal>
+          <img src="assets/profile-antaresa.png" alt="Imagen de perfil premium con el nombre ANTARESa" />
+        </div>
+        <div class="brand-system" data-reveal>
+          <p class="eyebrow">Identidad visual</p>
+          <h2>Perfil de marca creado para ANTARESa.</h2>
+          <p class="section-copy">Se diseñó una imagen de perfil con monograma, halo astral y acabado cobre/oro. La paleta mantiene coherencia premium: espresso profundo, caoba, cobre, oro suave, crema y oliva gastronómico.</p>
+          <div class="palette" aria-label="Paleta de marca">
+            <div class="swatch" style="background:#090705"><b>Ink</b><span>#090705</span></div>
+            <div class="swatch" style="background:#462013"><b>Caoba</b><span>#462013</span></div>
+            <div class="swatch" style="background:#a66434"><b>Cobre</b><span>#A66434</span></div>
+            <div class="swatch" style="background:#d8a95f;color:#1b0d06"><b>Oro</b><span>#D8A95F</span></div>
+            <div class="swatch" style="background:#56613c"><b>Oliva</b><span>#56613C</span></div>
+          </div>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="assets/profile-antaresa.png" download>Descargar perfil</a>
+            <a class="btn btn-secondary" href="#reservas">Solicitar adaptación</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="club" class="enhanced-section">
+      <div class="container premium-grid-2">
+        <article class="premium-card" data-reveal>
+          <p class="eyebrow">Club ANTARESa</p>
+          <h2>Fidelización premium sin fricción.</h2>
+          <p>Un módulo pensado para capturar clientes recurrentes: beneficios de café, previews de pastelería y eventos privados.</p>
+          <ul class="benefit-list">
+            <li>10% de bienvenida en la próxima merienda.</li>
+            <li>Acceso anticipado a piezas limitadas de vitrina.</li>
+            <li>Invitaciones a catas, brunchs y noches de aperitivo.</li>
+          </ul>
+          <form class="mini-form" id="clubForm">
+            <input type="email" id="clubEmail" placeholder="tu@email.com" aria-label="Email para Club ANTARESa" required />
+            <button class="btn btn-primary" type="submit">Sumarme al club</button>
+          </form>
+          <div class="coupon-box" id="couponBox">Código de bienvenida: <strong>ANTARES10</strong></div>
+        </article>
+
+        <article class="premium-card" data-reveal>
+          <p class="eyebrow">Horarios</p>
+          <h2>Operación clara para convertir reservas.</h2>
+          <p id="scheduleSummary">Abierto todos los días con café, brunch, merienda y aperitivo.</p>
+          <div class="schedule-table" aria-label="Horarios de atención">
+            <div class="schedule-row"><span>Lunes a jueves</span><strong>07:30 · 23:00</strong></div>
+            <div class="schedule-row"><span>Viernes y sábado</span><strong>07:30 · 00:30</strong></div>
+            <div class="schedule-row"><span>Domingo</span><strong>08:00 · 20:00</strong></div>
+          </div>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#reservas">Reservar mesa</a>
+            <a class="btn btn-secondary" href="#" data-whatsapp="general">Consultar ahora</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="eventos">
+      <div class="container premium-grid-2">
+        <article class="premium-card" data-reveal>
+          <p class="eyebrow">Eventos & catering</p>
+          <h2>ANTARESa para encuentros privados.</h2>
+          <p>Propuesta para cumpleaños íntimos, desayunos corporativos, lanzamientos de marca y after office con carta de café, finger food y pastelería.</p>
+          <ul class="benefit-list">
+            <li>Menú cerrado por persona con opciones veggie y 0.0.</li>
+            <li>Barra de café de especialidad y aperitivos de autor.</li>
+            <li>Branding de mesa, QR privado y selección musical.</li>
+          </ul>
+          <a class="btn btn-primary" href="#" data-whatsapp="eventos">Cotizar evento</a>
+        </article>
+        <article class="premium-card qr-card" id="qr-mesa" data-reveal>
+          <img src="assets/qr-menu-antaresa.png" alt="QR para abrir el catálogo digital ANTARESa" />
+          <div>
+            <p class="eyebrow">QR de mesa</p>
+            <h3>Listo para imprimir y ubicar en cada mesa.</h3>
+            <p>Apunta al catálogo digital de la marca. Al publicar el sitio, se reemplaza por la URL definitiva del local.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="assets/qr-menu-antaresa.png" download>Descargar QR</a>
+              <button class="btn btn-secondary" type="button" id="copyMenuUrl">Copiar URL</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="opiniones" class="enhanced-section">
+      <div class="container">
+        <div data-reveal>
+          <p class="eyebrow">Prueba social</p>
+          <h2 class="section-title">Señales de confianza para vender mejor.</h2>
+          <p class="section-copy">Opiniones que reflejan experiencia, producto y servicio. Se integran con reseñas reales de Google o Instagram.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial" data-reveal><span class="stars">★★★★★</span><p>“El brunch se siente de autor: abundante, prolijo y con café impecable.”</p><b>Marina G. · Palermo</b></article>
+          <article class="testimonial" data-reveal><span class="stars">★★★★★</span><p>“La pastelería parece de joyería. Ideal para merienda premium y fotos.”</p><b>Tomás R. · Recoleta</b></article>
+          <article class="testimonial" data-reveal><span class="stars">★★★★★</span><p>“Carta clara, atención rápida y una estética cálida que invita a quedarse.”</p><b>Lucía P. · Belgrano</b></article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="reservas" class="contact">
+      <div class="container contact-grid">
+        <div data-reveal>
+          <p class="eyebrow">Reservas</p>
+          <h2 class="section-title">Un cierre claro para convertir visitas en mesas.</h2>
+          <p class="section-copy">La página está lista para conectar con WhatsApp, Instagram, Google Maps o el sistema de reservas que prefieras.</p>
+          <ul class="contact-list">
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.8"/></svg><a href="#" data-map-link id="contactAddress">Dirección del local · a confirmar</a></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h14v16H5z" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span id="contactHours">Lun a jue 07:30-23:00 · Vie/sáb 07:30-00:30 · Dom 08:00-20:00</span></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v14H4z" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8"/></svg><a href="mailto:contacto@antaresa.com">contacto@antaresa.com</a></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="1.8"/><path d="M16.5 7.5h.01M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8"/></svg><a href="https://instagram.com/antaresa.cafe" target="_blank" rel="noopener">@antaresa.cafe</a></li>
+            <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7.05L4 20l1.45-4.05A8 8 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8.8c.3 2 1.7 3.6 3.9 4.6l1.1-1.1 2 .5c.2 1-.2 1.8-1.1 2.4-3.2.1-7-2.5-8.1-6.6.4-.9 1.1-1.4 2.2-1.4l.6 1.6H9Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><a href="#" data-whatsapp="general">WhatsApp reservas y pedidos</a></li>
+          </ul>
+        </div>
+
+        <form class="contact-card reservation-form" data-reveal id="reservationForm">
+          <div class="field">
+            <label for="name">Nombre</label>
+            <input id="name" name="name" placeholder="Tu nombre" required />
+          </div>
+          <div class="field">
+            <label for="date">Fecha</label>
+            <input id="date" name="date" type="date" required />
+          </div>
+          <div class="field">
+            <label for="time">Horario</label>
+            <select id="time" name="time" required>
+              <option value="09:00">09:00</option>
+              <option value="11:00">11:00</option>
+              <option value="13:30">13:30</option>
+              <option value="17:00">17:00</option>
+              <option value="20:30">20:30</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="people">Personas</label>
+            <select id="people" name="people" required>
+              <option value="2">2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5+">5 o más</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Comentario</label>
+            <textarea id="message" name="message" placeholder="Horario ideal, ocasión, preferencias..."></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Enviar reserva por WhatsApp</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="brand">
+        <img class="brand-logo" src="assets/profile-antaresa.png" alt="Logo ANTARESa" width="96" height="96" />
+        <span class="brand-name"><strong>ANTARESa</strong><span>Resto · Café</span></span>
+      </div>
+      <p>© <span id="year"></span> ANTARESa. Catálogo digital premium · Diseño conceptual listo para personalizar.</p>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+
+
+  <button class="admin-launcher" id="adminLauncher" type="button" aria-label="Abrir panel administrador">Admin</button>
+
+  <div class="admin-panel" id="adminPanel" hidden role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+    <div class="admin-shell">
+      <div class="admin-head">
+        <div>
+          <span class="eyebrow">Gestión sin código</span>
+          <h2 id="adminTitle">Panel Admin ANTARESa</h2>
+          <p>Editá precios, carta, descripciones, imágenes y visibilidad. Los cambios se publican al instante y quedan guardados en este navegador.</p>
+        </div>
+        <button class="admin-close" type="button" id="adminClose" aria-label="Cerrar panel administrador">×</button>
+      </div>
+      <div class="admin-body">
+        <div class="admin-login" id="adminLogin">
+          <h3>Acceso privado</h3>
+          <p class="section-copy">Demo local: usá el PIN <strong>antaresa2026</strong>. En una publicación real este panel debería conectarse a un backend con usuarios.</p>
+          <div class="admin-field">
+            <label for="adminPin">PIN de administración</label>
+            <input class="admin-input" id="adminPin" type="password" placeholder="Ingresá el PIN" autocomplete="current-password" />
+          </div>
+          <div class="admin-editor-actions">
+            <button class="btn btn-primary" type="button" id="adminUnlock">Entrar al panel</button>
+            <button class="btn btn-secondary" type="button" id="adminDemoFill">Usar PIN demo</button>
+          </div>
+        </div>
+
+        <div id="adminWorkspace" hidden>
+          <div class="admin-toolbar">
+            <div class="admin-toolbar-left">
+              <input class="admin-search" id="adminProductSearch" placeholder="Buscar producto para editar..." />
+              <span class="admin-stat" id="adminStats">0 productos</span>
+              <span class="admin-status" id="adminLastSaved">Sin cambios</span>
+            </div>
+            <div class="admin-toolbar-right">
+              <button class="btn btn-secondary btn-mini" type="button" id="adminNewProduct">Nuevo</button>
+              <button class="btn btn-secondary btn-mini" type="button" id="adminDuplicateProduct">Duplicar</button>
+              <button class="btn btn-secondary btn-mini" type="button" id="adminExport">Exportar JSON</button>
+              <button class="btn btn-secondary btn-mini" type="button" id="adminImportToggle">Importar</button>
+              <button class="btn btn-secondary btn-mini" type="button" id="adminReset">Restaurar demo</button>
+            </div>
+          </div>
+
+          <div class="admin-workspace">
+            <aside class="admin-list-card">
+              <div class="admin-list-head"><strong>Productos de la carta</strong><span class="admin-stat" id="adminVisibleStats">0 visibles</span></div>
+              <div class="admin-product-list" id="adminProductList" aria-label="Productos editables"></div>
+            </aside>
+
+            <section class="admin-editor" aria-label="Editor de producto">
+              <h3>Editor gastronómico</h3>
+              <form id="adminEditorForm">
+                <div class="admin-form-grid">
+                  <div class="admin-field">
+                    <label for="adminName">Nombre</label>
+                    <input class="admin-input" id="adminName" required />
+                  </div>
+                  <div class="admin-field">
+                    <label for="adminPrice">Precio ARS</label>
+                    <input class="admin-input" id="adminPrice" type="number" min="0" step="100" required />
+                  </div>
+                  <div class="admin-field">
+                    <label for="adminCategory">Categorías</label>
+                    <input class="admin-input" id="adminCategory" placeholder="bebidas brunch autor" />
+                    <small>Usá: bebidas, comidas, brunch, pasteleria, autor.</small>
+                  </div>
+                  <div class="admin-field">
+                    <label for="adminPill">Etiqueta visual</label>
+                    <input class="admin-input" id="adminPill" placeholder="Bebidas, Comidas, Brunch..." />
+                  </div>
+                  <div class="admin-field full">
+                    <label for="adminDescription">Descripción comercial</label>
+                    <textarea class="admin-textarea" id="adminDescription" required></textarea>
+                  </div>
+                  <div class="admin-field">
+                    <label for="adminImage">Imagen</label>
+                    <input class="admin-input" id="adminImage" list="adminImageOptions" placeholder="assets/menu-matcha-latte.jpg" />
+                    <datalist id="adminImageOptions"></datalist>
+                  </div>
+                  <div class="admin-field">
+                    <label for="adminAlt">Texto alternativo</label>
+                    <input class="admin-input" id="adminAlt" placeholder="Descripción breve de la imagen" />
+                  </div>
+                  <div class="admin-field">
+                    <label for="adminTags">Tags</label>
+                    <input class="admin-input" id="adminTags" placeholder="Veggie, Signature, Liviano" />
+                  </div>
+                  <div class="admin-field">
+                    <label for="adminCalories">Nota / medida</label>
+                    <input class="admin-input" id="adminCalories" placeholder="Porción, 300 ml, plato fuerte" />
+                  </div>
+                  <div class="admin-field full">
+                    <label for="adminSearchText">Palabras de búsqueda</label>
+                    <input class="admin-input" id="adminSearchText" placeholder="café frío naranja canela sin alcohol" />
+                  </div>
+                  <div class="admin-field">
+                    <label for="adminPairing">Maridaje</label>
+                    <input class="admin-input" id="adminPairing" placeholder="Flat White, Malbec, Spritz..." />
+                  </div>
+                  <div class="admin-field">
+                    <label for="adminProfile">Perfil de sabor</label>
+                    <input class="admin-input" id="adminProfile" placeholder="Cítrico · cremoso · especiado" />
+                  </div>
+                  <div class="admin-field">
+                    <label for="adminAllergens">Alérgenos</label>
+                    <input class="admin-input" id="adminAllergens" placeholder="Gluten · lácteos · frutos secos" />
+                  </div>
+                  <div class="admin-field">
+                    <label for="adminTime">Tiempo</label>
+                    <input class="admin-input" id="adminTime" placeholder="8 min" />
+                  </div>
+                  <div class="admin-field full">
+                    <label>Estado</label>
+                    <div class="admin-checkbox-row">
+                      <label><input type="checkbox" id="adminVisible" checked /> Visible en la carta pública</label>
+                      <label><input type="checkbox" id="adminFeatured" /> Destacar como autor/signature</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="admin-preview" id="adminPreview">
+                  <img src="assets/coffee-drinks.jpg" alt="Preview producto" />
+                  <div><b>Preview del producto</b><span>Guardá para publicar los cambios en la carta.</span></div>
+                </div>
+
+                <div class="admin-editor-actions">
+                  <button class="btn btn-primary" type="submit">Guardar y publicar</button>
+                  <button class="btn btn-secondary" type="button" id="adminViewProduct">Ver en carta</button>
+                  <button class="btn btn-secondary" type="button" id="adminDeleteProduct">Eliminar de la carta</button>
+                </div>
+              </form>
+
+              <div class="admin-bulk">
+                <input class="admin-input" id="adminBulkPercent" type="number" step="1" placeholder="% ajuste" />
+                <button class="btn btn-secondary btn-mini" type="button" id="adminApplyBulk">Aplicar ajuste masivo</button>
+                <span class="admin-status">Ejemplo: 10 sube todos los precios 10%. -5 baja 5%.</span>
+              </div>
+
+              <div class="admin-json-box" id="adminJsonBox">
+                <div class="admin-field full">
+                  <label for="adminJsonArea">Importar / exportar carta JSON</label>
+                  <textarea class="admin-textarea" id="adminJsonArea" spellcheck="false"></textarea>
+                </div>
+                <div class="admin-json-actions">
+                  <button class="btn btn-primary btn-mini" type="button" id="adminImportApply">Aplicar JSON importado</button>
+                  <button class="btn btn-secondary btn-mini" type="button" id="adminCopyJson">Copiar JSON</button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="detail-modal" id="detailModal" hidden role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="detail-card">
+      <div class="detail-head">
+        <span class="eyebrow">Detalle premium</span>
+        <button class="detail-close" type="button" id="detailClose" aria-label="Cerrar detalle">×</button>
+      </div>
+      <div class="detail-content">
+        <img id="detailImage" src="assets/food-brunch.jpg" alt="" />
+        <div class="detail-info">
+          <span class="detail-price" id="detailPrice">AR$ 0</span>
+          <h3 id="detailTitle">Producto</h3>
+          <p id="detailDescription">Descripción del producto.</p>
+          <div class="detail-grid">
+            <div class="detail-kpi"><span>Maridaje</span><b id="detailPairing">Café de origen</b></div>
+            <div class="detail-kpi"><span>Perfil</span><b id="detailProfile">Balanceado</b></div>
+            <div class="detail-kpi"><span>Alérgenos</span><b id="detailAllergens">Consultar</b></div>
+            <div class="detail-kpi"><span>Tiempo</span><b id="detailTime">8-12 min</b></div>
+          </div>
+          <div class="tags" id="detailTags"></div>
+          <div class="hero-ctas">
+            <button class="btn btn-primary" type="button" id="detailAdd">Agregar a selección</button>
+            <button class="btn btn-secondary" type="button" id="detailFavorite">Guardar favorito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quick-actions" aria-label="Acciones rápidas">
+    <a href="#" data-whatsapp="general" aria-label="Contactar por WhatsApp">☏</a>
+    <a href="https://instagram.com/antaresa.cafe" target="_blank" rel="noopener" aria-label="Abrir Instagram">◎</a>
+    <a href="#" data-map-link aria-label="Abrir ubicación">⌖</a>
+    <button type="button" id="quickPrint" aria-label="Imprimir carta">⎙</button>
+  </div>
+
+
+  <aside class="order-tray" id="orderTray" aria-label="Selección de productos">
+    <div class="tray-head">
+      <div class="tray-title"><span class="tray-count" id="trayCount">0</span> Mi selección</div>
+      <button class="tray-toggle" id="trayToggle" type="button" aria-label="Abrir o cerrar selección">⌃</button>
+    </div>
+    <div class="tray-body">
+      <div class="tray-items" id="trayItems"><p class="tray-empty">Agregá productos del catálogo para armar una selección.</p></div>
+      <div class="tray-recommendations" id="trayRecommendations" aria-live="polite"></div>
+      <div class="tray-total"><span>Total estimado</span><strong id="trayTotal">AR$ 0</strong></div>
+      <div class="tray-actions">
+        <button class="btn btn-secondary btn-mini" type="button" id="clearTray">Vaciar</button>
+        <button class="btn btn-secondary btn-mini" type="button" id="copyOrder">Copiar</button>
+        <button class="btn btn-primary btn-mini" type="button" id="checkoutWhatsApp">WhatsApp</button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Listo</div>
+
+  <script>
+    const $ = (selector, scope = document) => scope.querySelector(selector);
+    const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
+    const formatter = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 });
+
+    const CONFIG = {
+      brand: 'ANTARESa',
+      menuUrl: 'https://antaresa.com/menu',
+      whatsappNumber: '5491112345678',
+      instagramUrl: 'https://instagram.com/antaresa.cafe',
+      mapUrl: 'https://www.google.com/maps/search/?api=1&query=ANTARESa%20Resto%20Cafe',
+      address: 'Dirección del local · a confirmar',
+      email: 'contacto@antaresa.com',
+      hours: [
+        { label: 'Domingo', open: '08:00', close: '20:00' },
+        { label: 'Lunes', open: '07:30', close: '23:00' },
+        { label: 'Martes', open: '07:30', close: '23:00' },
+        { label: 'Miércoles', open: '07:30', close: '23:00' },
+        { label: 'Jueves', open: '07:30', close: '23:00' },
+        { label: 'Viernes', open: '07:30', close: '00:30', nextDay: true },
+        { label: 'Sábado', open: '07:30', close: '00:30', nextDay: true }
+      ]
+    };
+
+    function buildWhatsAppLink(message) {
+      return `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+    }
+
+    function buildOrderMessage() {
+      if (!state.order.length) return `Hola ${CONFIG.brand}, quiero consultar por la carta y disponibilidad.`;
+      const lines = state.order.map(item => `• ${item.qty} x ${item.name} — ${formatter.format(item.price * item.qty)}`);
+      const total = state.order.reduce((sum, item) => sum + item.price * item.qty, 0);
+      return `Hola ${CONFIG.brand}, quiero consultar por esta selección:\n${lines.join('\n')}\nTotal estimado: ${formatter.format(total)}\n¿Me confirman disponibilidad?`;
+    }
+
+    const state = {
+      filter: 'all',
+      search: '',
+      order: JSON.parse(localStorage.getItem('antaresa-order') || '[]')
+    };
+
+    const toast = $('#toast');
+    let toastTimer;
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 1800);
+    }
+
+    function normalize(text) {
+      return String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    }
+
+    function applyFilters() {
+      const cards = $$('.menu-card');
+      let visible = 0;
+      const query = normalize(state.search);
+      cards.forEach(card => {
+        const categories = card.dataset.category || '';
+        const haystack = normalize(`${card.dataset.name} ${card.dataset.search} ${card.textContent}`);
+        const matchFilter = state.filter === 'all' || categories.includes(state.filter);
+        const matchSearch = !query || haystack.includes(query);
+        const show = matchFilter && matchSearch;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      $('#emptyState').classList.toggle('is-visible', visible === 0);
+    }
+
+    $$('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        $$('.tab').forEach(item => item.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        state.filter = tab.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    $('#searchInput').addEventListener('input', event => {
+      state.search = event.target.value;
+      $$('.quick-filter').forEach(filter => filter.classList.remove('is-active'));
+      applyFilters();
+    });
+
+    $$('.quick-filter').forEach(filter => {
+      filter.addEventListener('click', () => {
+        const active = filter.classList.toggle('is-active');
+        $$('.quick-filter').forEach(other => { if (other !== filter) other.classList.remove('is-active'); });
+        const input = $('#searchInput');
+        input.value = active ? filter.dataset.smartFilter : '';
+        state.search = input.value;
+        applyFilters();
+      });
+    });
+
+    $('#printMenu').addEventListener('click', () => window.print());
+    $('#quickPrint').addEventListener('click', () => window.print());
+
+    function persistOrder() {
+      localStorage.setItem('antaresa-order', JSON.stringify(state.order));
+    }
+
+    function renderOrder() {
+      const items = $('#trayItems');
+      const count = state.order.reduce((sum, item) => sum + item.qty, 0);
+      const total = state.order.reduce((sum, item) => sum + item.price * item.qty, 0);
+      $('#trayCount').textContent = count;
+      $('#trayTotal').textContent = formatter.format(total);
+
+      if (!state.order.length) {
+        items.innerHTML = '<p class="tray-empty">Agregá productos del catálogo para armar una selección.</p>';
+        return;
+      }
+      items.innerHTML = state.order.map(item => `
+        <div class="tray-item" data-id="${item.id}">
+          <div><b>${item.name}</b><span>${formatter.format(item.price)} · ${item.qty} u.</span></div>
+          <div class="qty-control" aria-label="Cantidad de ${item.name}">
+            <button type="button" data-action="minus" aria-label="Restar">−</button>
+            <strong>${item.qty}</strong>
+            <button type="button" data-action="plus" aria-label="Sumar">+</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function itemFromCard(card) {
+      return {
+        id: normalize(card.dataset.name).replace(/\s+/g, '-'),
+        name: card.dataset.name,
+        price: Number(card.dataset.price || 0),
+        qty: 1
+      };
+    }
+
+    $('#catalogGrid').addEventListener('click', event => {
+      const button = event.target.closest('.add-btn');
+      const card = button ? button.closest('.menu-card') : null;
+      if (!button || !card) return;
+      const item = itemFromCard(card);
+      const existing = state.order.find(orderItem => orderItem.id === item.id);
+      if (existing) existing.qty += 1;
+      else state.order.push(item);
+      persistOrder();
+      renderOrder();
+      $('#orderTray').classList.add('is-open');
+      showToast(`${item.name} agregado`);
+    });
+
+    $('#trayItems').addEventListener('click', event => {
+      const button = event.target.closest('button');
+      if (!button) return;
+      const row = event.target.closest('.tray-item');
+      const item = state.order.find(orderItem => orderItem.id === row.dataset.id);
+      if (!item) return;
+      if (button.dataset.action === 'plus') item.qty += 1;
+      if (button.dataset.action === 'minus') item.qty -= 1;
+      state.order = state.order.filter(orderItem => orderItem.qty > 0);
+      persistOrder();
+      renderOrder();
+    });
+
+    $('#trayToggle').addEventListener('click', () => {
+      $('#orderTray').classList.toggle('is-open');
+    });
+
+    $('#clearTray').addEventListener('click', () => {
+      state.order = [];
+      persistOrder();
+      renderOrder();
+      showToast('Selección vacía');
+    });
+
+    $('#copyOrder').addEventListener('click', async () => {
+      if (!state.order.length) {
+        showToast('Primero agregá productos');
+        return;
+      }
+      const text = buildOrderMessage();
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast('Pedido copiado');
+      } catch (error) {
+        showToast('No se pudo copiar');
+      }
+    });
+
+    $('#checkoutWhatsApp').addEventListener('click', () => {
+      if (!state.order.length) {
+        showToast('Primero agregá productos');
+        return;
+      }
+      window.open(buildWhatsAppLink(buildOrderMessage()), '_blank', 'noopener');
+      showToast('Abriendo WhatsApp');
+    });
+
+    const menuToggle = $('.menu-toggle');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = document.body.classList.toggle('menu-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    $$('.nav-links a').forEach(link => link.addEventListener('click', () => {
+      document.body.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+
+
+
+    const productDetails = {
+      'Espresso Origen Norte': { pairing: 'Chocolate intenso o croissant', profile: 'Cacao · panela · cítrico', allergens: 'Sin TACC por receta', time: '4 min', tags: ['Origen', 'Barista', 'Intenso'] },
+      'Flat White Antaresa': { pairing: 'Croissant de Pistacho', profile: 'Sedoso · dulce · balanceado', allergens: 'Lácteos', time: '5 min', tags: ['Latte art', 'Cremoso'] },
+      'Iced Tonic Espresso': { pairing: 'Tostón de Palta & Lima', profile: 'Cítrico · frío · brillante', allergens: 'Sin alcohol', time: '6 min', tags: ['0.0', 'Refrescante'] },
+      'Spritz de Estación': { pairing: 'Pastrami de la Casa', profile: 'Burbujas · pomelo · hierbas', allergens: 'Consultar versión 0.0', time: '7 min', tags: ['Aperitivo', 'De autor'] },
+      'Brunch Antaresa': { pairing: 'Iced Tonic Espresso', profile: 'Completo · fresco · elegante', allergens: 'Huevos · gluten · lácteos', time: '14 min', tags: ['Signature', 'Chef recomienda'] },
+      'Tostón de Palta y Lima': { pairing: 'Iced Tonic Espresso', profile: 'Verde · cítrico · crocante', allergens: 'Gluten · semillas', time: '10 min', tags: ['Vegetariano', 'Brunch'] },
+      'Pastrami de la Casa': { pairing: 'Spritz de Estación', profile: 'Ahumado · ácido · untuoso', allergens: 'Gluten · mostaza · lácteos', time: '13 min', tags: ['Almuerzo', 'Gourmet'] },
+      'Bowl Mediterráneo': { pairing: 'Espresso Origen Norte', profile: 'Liviano · vegetal · oliva', allergens: 'Sésamo', time: '11 min', tags: ['Plant based', 'Veggie'] },
+      'Milanesa Porteña Premium': { pairing: 'Spritz de Estación', profile: 'Crocante · clásico · urbano', allergens: 'Gluten · huevo · lácteos', time: '16 min', tags: ['Compartible', 'Clásico elevado'] },
+      'Croissant de Pistacho': { pairing: 'Flat White ANTARESa', profile: 'Manteca · pistacho · flor de sal', allergens: 'Gluten · frutos secos · lácteos', time: '3 min', tags: ['Best seller', 'Artesanal'] },
+      'Torta Húmeda de Chocolate': { pairing: 'Espresso Origen Norte', profile: 'Cacao · ganache · profundo', allergens: 'Huevo · lácteos', time: '3 min', tags: ['Sin harina', 'Intensa'] },
+      'Cheesecake Cítrico': { pairing: 'Flat White ANTARESa', profile: 'Cremoso · limón · frutos rojos', allergens: 'Gluten · lácteos', time: '3 min', tags: ['Postre', 'Equilibrado'] },
+      'Cold Brew Naranja & Canela': { pairing: 'Croissant de Pistacho', profile: 'Café frío · naranja · especias', allergens: 'Sin TACC por receta', time: '5 min', tags: ['Frío', 'Signature'] },
+      'Matcha Latte Ceremonial': { pairing: 'Carrot Cake de la Casa', profile: 'Vegetal · cremoso · limpio', allergens: 'Lácteos / opción vegetal', time: '5 min', tags: ['Matcha', 'Ceremonial'] },
+      'Chai Especiado ANTARESa': { pairing: 'Alfajor Sablé Premium', profile: 'Canela · cardamomo · jengibre', allergens: 'Lácteos / especias', time: '6 min', tags: ['Especiado', 'Caliente'] },
+      'Limonada de Frutos Rojos': { pairing: 'Focaccia Caprese', profile: 'Cítrica · frutal · fresca', allergens: 'Sin alcohol', time: '4 min', tags: ['0.0', 'Refrescante'] },
+      'Copa Malbec & Tapas': { pairing: 'Pastrami de la Casa', profile: 'Fruta roja · madera · salino', allergens: 'Lácteos · gluten', time: '7 min', tags: ['Aperitivo', 'Maridaje'] },
+      'Shakshuka de la Casa': { pairing: 'Iced Tonic Espresso', profile: 'Tomate · especias · huevo', allergens: 'Huevos · gluten opcional', time: '14 min', tags: ['Brunch', 'Veggie'] },
+      'Croque Madame Premium': { pairing: 'Spritz de Estación', profile: 'Manteca · queso · huevo', allergens: 'Gluten · huevo · lácteos', time: '13 min', tags: ['Francés', 'Comfort'] },
+      'Bagel de Salmón Ahumado': { pairing: 'Cold Brew Naranja & Canela', profile: 'Ahumado · cítrico · cremoso', allergens: 'Gluten · pescado · lácteos', time: '10 min', tags: ['Premium', 'Fresco'] },
+      'Omelette Trufado': { pairing: 'Matcha Latte Ceremonial', profile: 'Trufa · hongos · parmesano', allergens: 'Huevos · lácteos', time: '10 min', tags: ['Brunch', 'Trufa'] },
+      'Focaccia Caprese': { pairing: 'Limonada de Frutos Rojos', profile: 'Tomate · oliva · albahaca', allergens: 'Gluten · lácteos', time: '8 min', tags: ['Mediterráneo', 'Veggie'] },
+      'Polenta Cremosa & Hongos': { pairing: 'Copa Malbec & Tapas', profile: 'Maíz · hongos · parmesano', allergens: 'Lácteos', time: '12 min', tags: ['Sin harina', 'Veggie'] },
+      'Risotto de Hongos': { pairing: 'Malbec por copa', profile: 'Hongos · manteca · parmesano', allergens: 'Lácteos', time: '16 min', tags: ['Cremoso', 'De autor'] },
+      'Burger Bistro ANTARESa': { pairing: 'Spritz de Estación', profile: 'Brioche · queso · cebolla', allergens: 'Gluten · lácteos · huevo', time: '15 min', tags: ['Bistro', 'Plato fuerte'] },
+      'Ensalada de Peras & Azul': { pairing: 'Iced Tonic Espresso', profile: 'Dulce · azul · nuez', allergens: 'Lácteos · frutos secos', time: '9 min', tags: ['Liviano', 'Veggie'] },
+      'Sopa de Calabaza Asada': { pairing: 'Focaccia Caprese', profile: 'Dulce · tostado · cremoso', allergens: 'Lácteos opcional', time: '8 min', tags: ['Comfort', 'Liviano'] },
+      'Carrot Cake de la Casa': { pairing: 'Chai Especiado ANTARESa', profile: 'Zanahoria · nuez · especias', allergens: 'Gluten · huevo · lácteos · nueces', time: '3 min', tags: ['Clásico', 'Especiado'] },
+      'Tiramisú al Café': { pairing: 'Espresso Origen Norte', profile: 'Café · cacao · mascarpone', allergens: 'Gluten · huevo · lácteos', time: '3 min', tags: ['Café', 'Italiano'] },
+      'Pavlova de Frutos Rojos': { pairing: 'Flat White ANTARESa', profile: 'Merengue · crema · frutos rojos', allergens: 'Huevo · lácteos', time: '3 min', tags: ['Frutal', 'Ligero'] },
+      'Alfajor Sablé Premium': { pairing: 'Chai Especiado ANTARESa', profile: 'Dulce de leche · chocolate', allergens: 'Gluten · lácteos', time: '3 min', tags: ['Argentino', 'Premium'] },
+      'Panna Cotta de Vainilla': { pairing: 'Cold Brew Naranja & Canela', profile: 'Vainilla · cítrico · pistacho', allergens: 'Lácteos · frutos secos', time: '3 min', tags: ['Cremoso', 'Elegante'] }
+    };
+
+    const favorites = new Set(JSON.parse(localStorage.getItem('antaresa-favorites') || '[]'));
+    let currentDetailCard = null;
+
+    function saveFavorites() {
+      localStorage.setItem('antaresa-favorites', JSON.stringify([...favorites]));
+    }
+
+    function formatPlainPrice(value) { return formatter.format(Number(value || 0)); }
+
+    function openDetail(card) {
+      currentDetailCard = card;
+      const name = card.dataset.name;
+      const storedDetail = productDetails[name] || {};
+      const detail = {
+        pairing: card.dataset.pairing || storedDetail.pairing || 'Café de origen',
+        profile: card.dataset.profile || storedDetail.profile || 'Balanceado',
+        allergens: card.dataset.allergens || storedDetail.allergens || 'Consultar',
+        time: card.dataset.time || storedDetail.time || '8-12 min',
+        tags: card.dataset.detailTags ? card.dataset.detailTags.split('|').filter(Boolean) : (storedDetail.tags || [])
+      };
+      $('#detailImage').src = $('img', card).src;
+      $('#detailImage').alt = $('img', card).alt || name;
+      $('#detailPrice').textContent = formatPlainPrice(card.dataset.price);
+      $('#detailTitle').textContent = name;
+      $('#detailDescription').textContent = $('p', card).textContent;
+      $('#detailPairing').textContent = detail.pairing;
+      $('#detailProfile').textContent = detail.profile;
+      $('#detailAllergens').textContent = detail.allergens;
+      $('#detailTime').textContent = detail.time;
+      $('#detailTags').innerHTML = detail.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+      $('#detailFavorite').textContent = favorites.has(name) ? 'Quitar favorito' : 'Guardar favorito';
+      $('#detailModal').hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDetail() {
+      $('#detailModal').hidden = true;
+      document.body.style.overflow = '';
+      currentDetailCard = null;
+    }
+
+    function enhanceMenuCards() {
+      $$('.menu-card').forEach(card => {
+        const name = card.dataset.name;
+        if (!$('.card-utility', card)) {
+          const utility = document.createElement('div');
+          utility.className = 'card-utility';
+          utility.innerHTML = `<button class="icon-btn favorite-btn" type="button" aria-label="Guardar ${name} como favorito">☆</button><button class="icon-btn details-btn" type="button" aria-label="Ver detalle de ${name}">↗</button>`;
+          card.appendChild(utility);
+        }
+        const favBtn = $('.favorite-btn', card);
+        const detailBtn = $('.details-btn', card);
+        favBtn.classList.toggle('is-active', favorites.has(name));
+        favBtn.textContent = favorites.has(name) ? '★' : '☆';
+        favBtn.onclick = () => {
+          if (favorites.has(name)) favorites.delete(name); else favorites.add(name);
+          saveFavorites();
+          enhanceMenuCards();
+          showToast(favorites.has(name) ? 'Guardado en favoritos' : 'Favorito quitado');
+        };
+        detailBtn.onclick = () => openDetail(card);
+      });
+    }
+
+    $('#detailClose').addEventListener('click', closeDetail);
+    $('#detailModal').addEventListener('click', event => { if (event.target.id === 'detailModal') closeDetail(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !$('#detailModal').hidden) closeDetail(); });
+    $('#detailAdd').addEventListener('click', () => {
+      if (currentDetailCard) $('.add-btn', currentDetailCard).click();
+      closeDetail();
+    });
+    $('#detailFavorite').addEventListener('click', () => {
+      if (!currentDetailCard) return;
+      const name = currentDetailCard.dataset.name;
+      if (favorites.has(name)) favorites.delete(name); else favorites.add(name);
+      saveFavorites();
+      enhanceMenuCards();
+      openDetail(currentDetailCard);
+    });
+
+    function wireContactChannels() {
+      $$('[data-whatsapp="general"]').forEach(link => {
+        link.href = buildWhatsAppLink(`Hola ${CONFIG.brand}, quiero consultar por reservas, carta y disponibilidad.`);
+        link.target = '_blank';
+        link.rel = 'noopener';
+      });
+      $$('[data-whatsapp="eventos"]').forEach(link => {
+        link.href = buildWhatsAppLink(`Hola ${CONFIG.brand}, quiero cotizar un evento privado/catering.`);
+        link.target = '_blank';
+        link.rel = 'noopener';
+      });
+      $$('[data-map-link]').forEach(link => {
+        link.href = CONFIG.mapUrl;
+        link.target = '_blank';
+        link.rel = 'noopener';
+      });
+      const address = $('#contactAddress');
+      if (address) address.textContent = CONFIG.address;
+    }
+
+    function minutesFromTime(value) {
+      const [hours, minutes] = value.split(':').map(Number);
+      return hours * 60 + minutes;
+    }
+
+    function updateOpenStatus() {
+      const now = new Date();
+      const today = CONFIG.hours[now.getDay()];
+      const current = now.getHours() * 60 + now.getMinutes();
+      const open = minutesFromTime(today.open);
+      let close = minutesFromTime(today.close);
+      if (today.nextDay && close < open) close += 24 * 60;
+      const adjustedCurrent = today.nextDay && current < open ? current + 24 * 60 : current;
+      const isOpen = adjustedCurrent >= open && adjustedCurrent <= close;
+      const text = isOpen ? `Abierto ahora · hasta ${today.close}` : `Cerrado ahora · abre ${today.open}`;
+      $('#openStatusText').textContent = text;
+      $('#openStatusDot').classList.toggle('is-closed', !isOpen);
+      $('#todaySchedule').textContent = `${today.label}: ${today.open} · ${today.close}`;
+    }
+
+    function renderSmartRecommendations() {
+      const box = $('#trayRecommendations');
+      if (!box) return;
+      if (!state.order.length) {
+        box.classList.remove('is-visible');
+        box.innerHTML = '';
+        return;
+      }
+      const ordered = new Set(state.order.map(item => item.name));
+      const preferred = ['Croissant de Pistacho', 'Iced Tonic Espresso', 'Flat White Antaresa', 'Spritz de Estación', 'Cheesecake Cítrico', 'Cold Brew Naranja & Canela', 'Focaccia Caprese', 'Alfajor Sablé Premium', 'Panna Cotta de Vainilla'];
+      const recs = preferred.filter(name => !ordered.has(name)).slice(0, 2);
+      if (!recs.length) {
+        box.classList.remove('is-visible');
+        box.innerHTML = '';
+        return;
+      }
+      box.classList.add('is-visible');
+      box.innerHTML = `<b>Sumá una recomendación</b><div class="rec-list">${recs.map(name => `<div class="rec-item"><span>${name}</span><button class="btn btn-mini add-btn" type="button" data-rec-name="${name}">Agregar</button></div>`).join('')}</div>`;
+      $$('[data-rec-name]', box).forEach(button => {
+        button.addEventListener('click', () => {
+          const card = $(`.menu-card[data-name="${button.dataset.recName}"]`);
+          if (card) $('.add-btn', card).click();
+        });
+      });
+    }
+
+    new MutationObserver(renderSmartRecommendations).observe($('#trayItems'), { childList: true });
+
+    $('#clubForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const email = $('#clubEmail').value.trim();
+      localStorage.setItem('antaresa-club-email', email);
+      $('#couponBox').classList.add('is-visible');
+      try { await navigator.clipboard.writeText('ANTARES10'); } catch (error) {}
+      showToast('Bienvenido al Club ANTARESa');
+    });
+
+    $('#copyMenuUrl').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(CONFIG.menuUrl);
+        showToast('URL del menú copiada');
+      } catch (error) {
+        showToast('URL: ' + CONFIG.menuUrl);
+      }
+    });
+
+
+
+    const ADMIN_PIN = 'antaresa2026';
+    const ADMIN_STORAGE_KEY = 'antaresa-admin-catalog-v1';
+    const ADMIN_AUTH_KEY = 'antaresa-admin-auth-v1';
+    let baseAdminProducts = [];
+    let adminProducts = [];
+    let selectedAdminId = null;
+
+    const adminImageOptions = [
+      'assets/coffee-drinks.jpg', 'assets/food-brunch.jpg', 'assets/dessert-bar.jpg', 'assets/hero-antaresa.jpg',
+      'assets/menu-cold-brew-naranja.jpg', 'assets/menu-matcha-latte.jpg', 'assets/menu-chai-especiado.jpg', 'assets/menu-limonada-frutos-rojos.jpg', 'assets/menu-copa-malbec-tapas.jpg',
+      'assets/menu-shakshuka.jpg', 'assets/menu-croque-madame.jpg', 'assets/menu-bagel-salmon.jpg', 'assets/menu-omelette-trufado.jpg', 'assets/menu-focaccia-caprese.jpg',
+      'assets/menu-hongos-polenta.jpg', 'assets/menu-risotto-hongos.jpg', 'assets/menu-burger-bistro.jpg', 'assets/menu-ensalada-peras-azules.jpg', 'assets/menu-sopa-calabaza.jpg',
+      'assets/menu-carrot-cake.jpg', 'assets/menu-tiramisu-cafe.jpg', 'assets/menu-pavlova-frutos-rojos.jpg', 'assets/menu-alfajor-sable.jpg', 'assets/menu-panna-cotta.jpg'
+    ];
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[char]));
+    }
+
+    function adminIdFromName(name) {
+      return normalize(name).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || `producto-${Date.now()}`;
+    }
+
+    function cloneProducts(products) {
+      return JSON.parse(JSON.stringify(products));
+    }
+
+    function tagsFromText(text) {
+      return String(text || '').split(',').map(tag => tag.trim()).filter(Boolean);
+    }
+
+    function productFromCard(card, index = 0) {
+      const name = card.dataset.name || $('h3', card)?.textContent?.trim() || `Producto ${index + 1}`;
+      const detail = productDetails[name] || {};
+      return {
+        id: card.dataset.adminId || adminIdFromName(name),
+        name,
+        price: Number(card.dataset.price || 0),
+        category: card.dataset.category || '',
+        search: card.dataset.search || '',
+        image: $('img', card)?.getAttribute('src') || 'assets/coffee-drinks.jpg',
+        alt: $('img', card)?.getAttribute('alt') || name,
+        pill: $('.menu-pill', card)?.textContent?.trim() || 'Carta',
+        description: $('.menu-body p', card)?.textContent?.trim() || '',
+        tags: $$('.tags .tag', card).map(tag => tag.textContent.trim()),
+        calories: $('.calories', card)?.textContent?.trim() || 'Porción',
+        visible: true,
+        pairing: detail.pairing || '',
+        profile: detail.profile || '',
+        allergens: detail.allergens || '',
+        time: detail.time || '',
+        detailTags: detail.tags || []
+      };
+    }
+
+    function cardHtml(product) {
+      if (product.visible === false) return '';
+      const tags = (product.tags || []).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('');
+      const categories = product.category || '';
+      return `
+          <article class="menu-card" data-admin-id="${escapeHtml(product.id)}" data-category="${escapeHtml(categories)}" data-name="${escapeHtml(product.name)}" data-price="${Number(product.price || 0)}" data-search="${escapeHtml(product.search || product.name)}" data-pairing="${escapeHtml(product.pairing || '')}" data-profile="${escapeHtml(product.profile || '')}" data-allergens="${escapeHtml(product.allergens || '')}" data-time="${escapeHtml(product.time || '')}" data-detail-tags="${escapeHtml((product.detailTags || product.tags || []).join('|'))}">
+            <div class="menu-media"><img src="${escapeHtml(product.image || 'assets/coffee-drinks.jpg')}" alt="${escapeHtml(product.alt || product.name)}" /><span class="menu-pill">${escapeHtml(product.pill || 'Carta')}</span></div>
+            <div class="menu-body"><div class="menu-top"><h3>${escapeHtml(product.name)}</h3><span class="price">${formatter.format(Number(product.price || 0))}</span></div><p>${escapeHtml(product.description || '')}</p><div class="tags">${tags}</div><div class="menu-bottom"><span class="calories">${escapeHtml(product.calories || 'Porción')}</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
+          </article>`;
+    }
+
+    function saveAdminProducts() {
+      localStorage.setItem(ADMIN_STORAGE_KEY, JSON.stringify(adminProducts));
+      localStorage.setItem('antaresa-admin-last-saved', new Date().toISOString());
+      updateAdminStatus();
+    }
+
+    function renderCatalogProducts() {
+      const empty = $('#emptyState');
+      $$('.menu-card', $('#catalogGrid')).forEach(card => card.remove());
+      empty.insertAdjacentHTML('beforebegin', adminProducts.map(cardHtml).join(''));
+      enhanceMenuCards();
+      applyFilters();
+      renderSmartRecommendations();
+    }
+
+    function updateAdminStatus() {
+      const total = adminProducts.length;
+      const visible = adminProducts.filter(product => product.visible !== false).length;
+      $('#adminStats').textContent = `${total} productos`;
+      $('#adminVisibleStats').textContent = `${visible} visibles`;
+      const saved = localStorage.getItem('antaresa-admin-last-saved');
+      $('#adminLastSaved').textContent = saved ? `Último guardado ${new Date(saved).toLocaleString('es-AR')}` : 'Cambios locales';
+    }
+
+    function renderAdminList() {
+      const query = normalize($('#adminProductSearch').value || '');
+      const list = $('#adminProductList');
+      const filtered = adminProducts.filter(product => !query || normalize(`${product.name} ${product.category} ${product.description}`).includes(query));
+      list.innerHTML = filtered.map(product => `
+        <button class="admin-product-item ${product.id === selectedAdminId ? 'is-active' : ''}" type="button" data-admin-pick="${escapeHtml(product.id)}">
+          <img src="${escapeHtml(product.image || 'assets/coffee-drinks.jpg')}" alt="" />
+          <span><b>${escapeHtml(product.name)}</b><span>${escapeHtml(product.pill || 'Carta')} · ${product.visible === false ? 'Oculto' : 'Visible'}</span></span>
+          <em>${formatter.format(Number(product.price || 0))}</em>
+        </button>
+      `).join('') || '<p class="tray-empty">No hay productos con esa búsqueda.</p>';
+      updateAdminStatus();
+    }
+
+    function selectedProduct() {
+      return adminProducts.find(product => product.id === selectedAdminId) || adminProducts[0];
+    }
+
+    function fillAdminForm(product) {
+      if (!product) return;
+      selectedAdminId = product.id;
+      $('#adminName').value = product.name || '';
+      $('#adminPrice').value = Number(product.price || 0);
+      $('#adminCategory').value = product.category || '';
+      $('#adminPill').value = product.pill || '';
+      $('#adminDescription').value = product.description || '';
+      $('#adminImage').value = product.image || '';
+      $('#adminAlt').value = product.alt || '';
+      $('#adminTags').value = (product.tags || []).join(', ');
+      $('#adminCalories').value = product.calories || '';
+      $('#adminSearchText').value = product.search || '';
+      $('#adminPairing').value = product.pairing || '';
+      $('#adminProfile').value = product.profile || '';
+      $('#adminAllergens').value = product.allergens || '';
+      $('#adminTime').value = product.time || '';
+      $('#adminVisible').checked = product.visible !== false;
+      $('#adminFeatured').checked = String(product.category || '').includes('autor');
+      renderAdminPreview();
+      renderAdminList();
+    }
+
+    function collectAdminForm() {
+      const previous = selectedProduct() || {};
+      const name = $('#adminName').value.trim() || 'Nuevo producto';
+      let category = $('#adminCategory').value.trim();
+      if ($('#adminFeatured').checked && !category.includes('autor')) category = `${category} autor`.trim();
+      return {
+        ...previous,
+        id: previous.id || adminIdFromName(name),
+        name,
+        price: Number($('#adminPrice').value || 0),
+        category,
+        pill: $('#adminPill').value.trim() || 'Carta',
+        description: $('#adminDescription').value.trim(),
+        image: $('#adminImage').value.trim() || 'assets/coffee-drinks.jpg',
+        alt: $('#adminAlt').value.trim() || name,
+        tags: tagsFromText($('#adminTags').value),
+        calories: $('#adminCalories').value.trim() || 'Porción',
+        search: $('#adminSearchText').value.trim() || name,
+        pairing: $('#adminPairing').value.trim(),
+        profile: $('#adminProfile').value.trim(),
+        allergens: $('#adminAllergens').value.trim(),
+        time: $('#adminTime').value.trim(),
+        detailTags: tagsFromText($('#adminTags').value),
+        visible: $('#adminVisible').checked
+      };
+    }
+
+    function renderAdminPreview() {
+      const product = collectAdminForm();
+      $('#adminPreview').innerHTML = `<img src="${escapeHtml(product.image)}" alt=""><div><b>${escapeHtml(product.name)}</b><span>${formatter.format(Number(product.price || 0))} · ${escapeHtml(product.description || 'Sin descripción')}</span></div>`;
+    }
+
+    function openAdminPanel() {
+      $('#adminPanel').hidden = false;
+      document.body.style.overflow = 'hidden';
+      if (localStorage.getItem(ADMIN_AUTH_KEY) === 'ok') showAdminWorkspace();
+      else setTimeout(() => $('#adminPin').focus(), 50);
+    }
+
+    function closeAdminPanel() {
+      $('#adminPanel').hidden = true;
+      document.body.style.overflow = '';
+    }
+
+    function showAdminWorkspace() {
+      $('#adminLogin').hidden = true;
+      $('#adminWorkspace').hidden = false;
+      if (!selectedAdminId && adminProducts[0]) selectedAdminId = adminProducts[0].id;
+      fillAdminForm(selectedProduct());
+    }
+
+    function initAdminCatalog() {
+      baseAdminProducts = $$('.menu-card').map(productFromCard);
+      try {
+        const saved = JSON.parse(localStorage.getItem(ADMIN_STORAGE_KEY) || 'null');
+        adminProducts = Array.isArray(saved) && saved.length ? saved : cloneProducts(baseAdminProducts);
+      } catch (error) {
+        adminProducts = cloneProducts(baseAdminProducts);
+      }
+      renderCatalogProducts();
+      $('#adminImageOptions').innerHTML = adminImageOptions.map(src => `<option value="${src}"></option>`).join('');
+      selectedAdminId = adminProducts[0]?.id || null;
+      renderAdminList();
+      updateAdminStatus();
+    }
+
+    function initAdminPanel() {
+      $('#adminLauncher').addEventListener('click', openAdminPanel);
+      $('#adminClose').addEventListener('click', closeAdminPanel);
+      $('#adminPanel').addEventListener('click', event => { if (event.target.id === 'adminPanel') closeAdminPanel(); });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !$('#adminPanel').hidden) closeAdminPanel();
+        if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key.toLowerCase() === 'a') openAdminPanel();
+      });
+      if (location.hash === '#admin') openAdminPanel();
+      $('#adminDemoFill').addEventListener('click', () => { $('#adminPin').value = ADMIN_PIN; $('#adminUnlock').click(); });
+      $('#adminUnlock').addEventListener('click', () => {
+        if ($('#adminPin').value === ADMIN_PIN) {
+          localStorage.setItem(ADMIN_AUTH_KEY, 'ok');
+          showAdminWorkspace();
+          showToast('Panel admin habilitado');
+        } else showToast('PIN incorrecto');
+      });
+      $('#adminProductSearch').addEventListener('input', renderAdminList);
+      $('#adminProductList').addEventListener('click', event => {
+        const pick = event.target.closest('[data-admin-pick]');
+        if (!pick) return;
+        fillAdminForm(adminProducts.find(product => product.id === pick.dataset.adminPick));
+      });
+      ['adminName','adminPrice','adminCategory','adminPill','adminDescription','adminImage','adminAlt','adminTags','adminCalories','adminSearchText','adminPairing','adminProfile','adminAllergens','adminTime'].forEach(id => {
+        $('#' + id).addEventListener('input', renderAdminPreview);
+      });
+      $('#adminVisible').addEventListener('change', renderAdminPreview);
+      $('#adminFeatured').addEventListener('change', renderAdminPreview);
+      $('#adminEditorForm').addEventListener('submit', event => {
+        event.preventDefault();
+        const product = collectAdminForm();
+        const index = adminProducts.findIndex(item => item.id === selectedAdminId);
+        if (index >= 0) adminProducts[index] = product;
+        else adminProducts.push(product);
+        selectedAdminId = product.id;
+        saveAdminProducts();
+        renderCatalogProducts();
+        renderAdminList();
+        showToast('Carta actualizada');
+      });
+      $('#adminNewProduct').addEventListener('click', () => {
+        const product = {
+          id: `producto-${Date.now()}`,
+          name: 'Nuevo producto',
+          price: 0,
+          category: 'bebidas autor',
+          search: 'nuevo producto',
+          image: 'assets/coffee-drinks.jpg',
+          alt: 'Nuevo producto ANTARESa',
+          pill: 'Carta',
+          description: 'Descripción premium del nuevo producto.',
+          tags: ['Nuevo'],
+          calories: 'Porción',
+          visible: true,
+          pairing: 'Café de origen',
+          profile: 'Balanceado',
+          allergens: 'Consultar',
+          time: '8 min',
+          detailTags: ['Nuevo']
+        };
+        adminProducts.unshift(product);
+        selectedAdminId = product.id;
+        fillAdminForm(product);
+        renderAdminList();
+        showToast('Producto nuevo creado');
+      });
+      $('#adminDuplicateProduct').addEventListener('click', () => {
+        const current = selectedProduct();
+        if (!current) return;
+        const copy = { ...cloneProducts([current])[0], id: `producto-${Date.now()}`, name: `${current.name} copia` };
+        adminProducts.unshift(copy);
+        selectedAdminId = copy.id;
+        fillAdminForm(copy);
+        showToast('Producto duplicado');
+      });
+      $('#adminDeleteProduct').addEventListener('click', () => {
+        const current = selectedProduct();
+        if (!current || !confirm(`¿Eliminar ${current.name} de la carta local?`)) return;
+        adminProducts = adminProducts.filter(product => product.id !== current.id);
+        selectedAdminId = adminProducts[0]?.id || null;
+        saveAdminProducts();
+        renderCatalogProducts();
+        fillAdminForm(selectedProduct());
+        renderAdminList();
+        showToast('Producto eliminado');
+      });
+      $('#adminViewProduct').addEventListener('click', () => {
+        const current = selectedProduct();
+        if (!current) return;
+        closeAdminPanel();
+        location.hash = '#catalogo';
+        setTimeout(() => {
+          const card = $(`.menu-card[data-admin-id="${CSS.escape(current.id)}"]`);
+          if (card) { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); card.style.outline = '2px solid rgba(216,169,95,.75)'; setTimeout(() => card.style.outline = '', 1600); }
+        }, 260);
+      });
+      $('#adminApplyBulk').addEventListener('click', () => {
+        const pct = Number($('#adminBulkPercent').value || 0);
+        if (!pct || !confirm(`¿Aplicar ${pct}% a todos los precios visibles?`)) return;
+        adminProducts = adminProducts.map(product => product.visible === false ? product : { ...product, price: Math.round((Number(product.price || 0) * (1 + pct / 100)) / 100) * 100 });
+        saveAdminProducts();
+        renderCatalogProducts();
+        fillAdminForm(selectedProduct());
+        renderAdminList();
+        showToast('Precios actualizados');
+      });
+      $('#adminExport').addEventListener('click', async () => {
+        const json = JSON.stringify(adminProducts, null, 2);
+        $('#adminJsonBox').classList.add('is-visible');
+        $('#adminJsonArea').value = json;
+        try { await navigator.clipboard.writeText(json); showToast('JSON copiado'); } catch (error) { showToast('JSON listo para copiar'); }
+      });
+      $('#adminImportToggle').addEventListener('click', () => $('#adminJsonBox').classList.toggle('is-visible'));
+      $('#adminCopyJson').addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText($('#adminJsonArea').value); showToast('JSON copiado'); } catch (error) { showToast('No se pudo copiar'); }
+      });
+      $('#adminImportApply').addEventListener('click', () => {
+        try {
+          const imported = JSON.parse($('#adminJsonArea').value);
+          if (!Array.isArray(imported) || !imported.length) throw new Error('Formato inválido');
+          adminProducts = imported.map((product, index) => ({ ...product, id: product.id || `producto-importado-${index}` }));
+          selectedAdminId = adminProducts[0].id;
+          saveAdminProducts();
+          renderCatalogProducts();
+          fillAdminForm(selectedProduct());
+          renderAdminList();
+          showToast('Carta importada');
+        } catch (error) { showToast('JSON inválido'); }
+      });
+      $('#adminReset').addEventListener('click', () => {
+        if (!confirm('¿Restaurar la carta demo original y borrar cambios locales?')) return;
+        localStorage.removeItem(ADMIN_STORAGE_KEY);
+        adminProducts = cloneProducts(baseAdminProducts);
+        selectedAdminId = adminProducts[0]?.id || null;
+        saveAdminProducts();
+        renderCatalogProducts();
+        fillAdminForm(selectedProduct());
+        renderAdminList();
+        showToast('Demo restaurada');
+      });
+    }
+
+
+    initAdminCatalog();
+    initAdminPanel();
+    enhanceMenuCards();
+    wireContactChannels();
+    updateOpenStatus();
+    renderSmartRecommendations();
+
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .14 });
+    $$('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+    const navLinks = $$('.nav-links a');
+    const sections = navLinks.map(link => $(link.getAttribute('href'))).filter(Boolean);
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`));
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(section => sectionObserver.observe(section));
+
+    $('#reservationForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const text = `Hola ${CONFIG.brand}, quiero reservar:\nNombre: ${data.get('name')}\nFecha: ${data.get('date')}\nHorario: ${data.get('time')}\nPersonas: ${data.get('people')}\nComentario: ${data.get('message') || 'Sin comentario'}`;
+      try { await navigator.clipboard.writeText(text); } catch (error) {}
+      window.open(buildWhatsAppLink(text), '_blank', 'noopener');
+      showToast('Reserva enviada a WhatsApp');
+    });
+
+    if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+      navigator.serviceWorker.register('service-worker.js').catch(() => {});
+    }
+
+    $('#year').textContent = new Date().getFullYear();
+    renderOrder();
+    applyFilters();
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "ANTARESa · Resto Café de Autor",
+  "short_name": "ANTARESa",
+  "description": "Catálogo digital premium para resto café con carta, pedidos y reservas.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#090705",
+  "theme_color": "#090705",
+  "icons": [
+    {
+      "src": "assets/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/profile-antaresa.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
