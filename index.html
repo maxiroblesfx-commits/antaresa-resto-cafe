@@ -937,6 +937,17 @@
       flex-wrap: wrap;
     }
     .footer-grid a { color: var(--gold-soft); font-weight: 800; }
+    .footer-admin {
+      padding: .5rem .9rem;
+      border: 1px solid rgba(216,169,95,.2);
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(247,236,218,.55);
+      font-size: .82rem;
+      font-weight: 740;
+      transition: color .2s ease, border-color .2s ease;
+    }
+    .footer-admin:hover { color: var(--gold-soft); border-color: rgba(216,169,95,.45); }
 
     .order-tray {
       position: fixed;
@@ -1324,13 +1335,11 @@
     .testimonial b { display: block; margin-top: .85rem; color: var(--gold-soft); }
     .stars { color: var(--gold-soft); letter-spacing: .08em; }
 
+    /* Strip de accesos flotantes desactivado: sus acciones (WhatsApp, Instagram,
+       mapa, imprimir) ya están en el nav, el hero, el contacto y el catálogo,
+       y el strip se superponía con el contenido. */
     .quick-actions {
-      position: fixed;
-      left: 18px;
-      bottom: 18px;
-      z-index: 118;
-      display: grid;
-      gap: .5rem;
+      display: none;
     }
     .quick-actions a,
     .quick-actions button {
@@ -1389,14 +1398,17 @@
 
 
     /* === Admin premium sin tocar código === */
+    /* Acceso Admin movido a un link discreto en el footer (también Ctrl+Shift+A / #admin).
+       El botón flotante se superponía con CTAs y contenido. */
     .admin-launcher {
+      display: none;
       position: fixed;
       right: 18px;
       bottom: 92px;
       z-index: 121;
       min-width: 112px;
       height: 46px;
-      display: inline-flex;
+      align-items: center;
       align-items: center;
       justify-content: center;
       gap: .45rem;
@@ -2271,6 +2283,7 @@
       </div>
       <p>© <span id="year"></span> ANTARESa. Catálogo digital premium · Diseño conceptual listo para personalizar.</p>
       <a href="#inicio">Volver arriba ↑</a>
+      <button class="footer-admin" id="footerAdmin" type="button">Panel admin</button>
     </div>
   </footer>
 
@@ -3104,6 +3117,7 @@
 
     function initAdminPanel() {
       $('#adminLauncher').addEventListener('click', openAdminPanel);
+      $('#footerAdmin')?.addEventListener('click', openAdminPanel);
       $('#adminClose').addEventListener('click', closeAdminPanel);
       $('#adminPanel').addEventListener('click', event => { if (event.target.id === 'adminPanel') closeAdminPanel(); });
       document.addEventListener('keydown', event => {

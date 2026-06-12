@@ -63,7 +63,7 @@ Se agregó un **Panel Admin ANTARESa** dentro de la propia web para poder cambia
 
 ### Cómo abrirlo
 
-- Botón flotante **Admin** en la web.
+- Link discreto **Panel admin** en el pie de página.
 - Atajo: `Ctrl + Shift + A`.
 - URL directa: abrir la página con `#admin` al final.
 
