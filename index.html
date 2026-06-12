@@ -10,8 +10,15 @@
   <meta property="og:title" content="ANTARESa · Resto Café de Autor" />
   <meta property="og:description" content="Carta digital premium con bebidas, comidas, brunch, pastelería y experiencias de autor." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/profile-antaresa.png" />
+  <meta property="og:image" content="assets/hero-antaresa.jpg" />
+  <meta property="og:image:width" content="1376" />
+  <meta property="og:image:height" content="768" />
+  <meta property="og:image:alt" content="Mesa de brunch premium en ANTARESa" />
+  <meta property="og:url" content="https://antaresa.com/" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ANTARESa · Resto Café de Autor" />
+  <meta name="twitter:description" content="Carta digital premium con bebidas, comidas, brunch, pastelería y experiencias de autor." />
+  <meta name="twitter:image" content="assets/hero-antaresa.jpg" />
   <title>ANTARESa · Resto Café de Autor</title>
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="apple-touch-icon" href="assets/profile-antaresa.png" />
@@ -241,6 +248,7 @@
     }
     .nav-links a:hover,
     .nav-links a.is-active { color: var(--cream); background: rgba(216, 169, 95, .13); }
+    .nav-cta { display: none; }
 
     .nav-actions { display: flex; align-items: center; gap: .65rem; }
     .menu-toggle {
@@ -1663,6 +1671,19 @@
       }
       body.menu-open .nav-links { opacity: 1; pointer-events: auto; transform: translateY(0); }
       .nav-links a { text-align: center; }
+      .nav-cta {
+        display: block;
+        margin-top: .3rem;
+        border: 1px solid rgba(216,169,95,.34);
+        background: rgba(216,169,95,.12);
+        color: var(--gold-soft);
+        font-weight: 840;
+      }
+      .nav-cta-wa {
+        color: #1b0d06;
+        border-color: transparent;
+        background: linear-gradient(135deg, var(--gold-soft), var(--gold) 48%, #ad6c36);
+      }
       .menu-toggle { display: block; }
       .nav-actions .btn { display: none; }
       .hero-grid,
@@ -1754,6 +1775,8 @@
         <a href="#catalogo">Catálogo</a>
         <a href="#marca">Marca</a>
         <a href="#reservas">Reservas</a>
+        <a class="nav-cta nav-cta-wa" href="#" data-whatsapp="general">WhatsApp</a>
+        <a class="nav-cta" href="#reservas">Reservar mesa</a>
       </nav>
 
       <div class="nav-actions">
@@ -2813,17 +2836,25 @@
 
     function updateOpenStatus() {
       const now = new Date();
-      const today = CONFIG.hours[now.getDay()];
+      const day = now.getDay();
+      const today = CONFIG.hours[day];
+      const yesterday = CONFIG.hours[(day + 6) % 7];
       const current = now.getHours() * 60 + now.getMinutes();
+      $('#todaySchedule').textContent = `${today.label}: ${today.open} · ${today.close}`;
+
+      // Cierre pasada medianoche que viene de ayer (ej.: viernes cierra 00:30 del sábado).
+      if (yesterday.nextDay && current <= minutesFromTime(yesterday.close)) {
+        $('#openStatusText').textContent = `Abierto ahora · hasta ${yesterday.close}`;
+        $('#openStatusDot').classList.remove('is-closed');
+        return;
+      }
+
       const open = minutesFromTime(today.open);
       let close = minutesFromTime(today.close);
       if (today.nextDay && close < open) close += 24 * 60;
-      const adjustedCurrent = today.nextDay && current < open ? current + 24 * 60 : current;
-      const isOpen = adjustedCurrent >= open && adjustedCurrent <= close;
-      const text = isOpen ? `Abierto ahora · hasta ${today.close}` : `Cerrado ahora · abre ${today.open}`;
-      $('#openStatusText').textContent = text;
+      const isOpen = current >= open && current <= close;
+      $('#openStatusText').textContent = isOpen ? `Abierto ahora · hasta ${today.close}` : `Cerrado ahora · abre ${today.open}`;
       $('#openStatusDot').classList.toggle('is-closed', !isOpen);
-      $('#todaySchedule').textContent = `${today.label}: ${today.open} · ${today.close}`;
     }
 
     function renderSmartRecommendations() {
