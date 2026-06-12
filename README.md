@@ -30,6 +30,10 @@ Web premium de una página para **ANTARESa · Resto Café de Autor**, con catál
 - Horarios visibles y estado abierto/cerrado dinámico.
 - Reserva por WhatsApp con nombre, fecha, horario, personas y comentario.
 - Pedido avanzado desde carrito con cantidades, total y envío por WhatsApp.
+- Sección **Galería** (ambiente y platos) lista para cargar fotos reales del local.
+- Sección **Preguntas frecuentes** con acordeón accesible y schema **FAQPage** (rich results en Google).
+- **Performance:** imágenes del catálogo y galería con `loading="lazy"` + `decoding="async"`.
+- **SEO:** `canonical`, Open Graph apaisado y datos estructurados Restaurant + FAQPage.
 
 > Para datos reales, editar el objeto `CONFIG` dentro de `index.html`: teléfono, Instagram, URL del menú, dirección, mapa y horarios.
 

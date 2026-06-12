@@ -23,6 +23,7 @@
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="apple-touch-icon" href="assets/profile-antaresa.png" />
   <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="canonical" href="https://antaresa.com/" />
   <style>
     :root {
       --ink: #090705;
@@ -1395,6 +1396,75 @@
     }
     .schedule-row strong { color: var(--gold-soft); }
 
+    /* === Galería gastronómica === */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-auto-rows: 184px;
+      gap: .8rem;
+      margin-top: 2.1rem;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(216,169,95,.16);
+      background: #0f0906;
+      box-shadow: 0 16px 42px rgba(0,0,0,.22);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .92;
+      transition: transform .7s var(--ease), opacity .3s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.07); opacity: 1; }
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(9,7,5,.42));
+      pointer-events: none;
+    }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.wide { grid-column: span 2; }
+
+    /* === Preguntas frecuentes === */
+    .faq-list { display: grid; gap: .7rem; margin-top: 2.1rem; max-width: 900px; }
+    .faq-item {
+      border: 1px solid rgba(216,169,95,.16);
+      border-radius: var(--radius-md);
+      background: rgba(247,236,218,.05);
+      overflow: hidden;
+      transition: border-color .2s ease, background .2s ease;
+    }
+    .faq-item[open] { border-color: rgba(216,169,95,.34); background: rgba(247,236,218,.07); }
+    .faq-item summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.05rem 1.2rem;
+      cursor: pointer;
+      list-style: none;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      letter-spacing: -.02em;
+      color: var(--cream);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: "+";
+      flex: 0 0 auto;
+      color: var(--gold);
+      font-size: 1.55rem;
+      line-height: 1;
+      transition: transform .25s var(--ease);
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item p { margin: 0; padding: 0 1.2rem 1.15rem; color: var(--muted); max-width: 760px; }
+
 
 
     /* === Admin premium sin tocar código === */
@@ -1716,6 +1786,7 @@
       .detail-content,
       .qr-card { grid-template-columns: 1fr; }
       .testimonial-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 150px; }
       .qr-card img { width: min(260px, 100%); }
       .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
@@ -1735,6 +1806,8 @@
       .tabs { overflow: auto; flex-wrap: nowrap; padding-bottom: .25rem; }
       .tab { white-space: nowrap; }
       .tray-actions { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 132px; }
+      .gallery-item.tall { grid-row: span 1; }
       /* Las acciones rápidas (WhatsApp, Instagram, mapa, imprimir) ya están en nav, hero, contacto y catálogo: se ocultan en mobile para despejar las tarjetas. */
       .quick-actions { display: none; }
       .detail-content img { min-height: 240px; }
@@ -1767,6 +1840,21 @@
       {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "07:30", "closes": "23:00"},
       {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "07:30", "closes": "00:30"},
       {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "08:00", "closes": "20:00"}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "¿Necesito reservar o puedo ir directo?", "acceptedAnswer": {"@type": "Answer", "text": "Podés venir sin reserva y, si hay lugar, te acomodamos al toque. Para asegurar mesa en horarios pico o grupos grandes, conviene reservar por WhatsApp o desde el formulario de la página."}},
+      {"@type": "Question", "name": "¿Hacen delivery o take away?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, se puede pedir para llevar y coordinar envío por WhatsApp. Armás tu selección desde el catálogo y confirmamos disponibilidad y tiempos."}},
+      {"@type": "Question", "name": "¿Tienen opciones vegetarianas, veganas o sin TACC?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Buena parte de la carta es veggie o plant based, y hay alternativas sin TACC. Hay filtros en el catálogo y la info de alérgenos está en el detalle de cada plato."}},
+      {"@type": "Question", "name": "¿Cómo hago un pedido o una consulta?", "acceptedAnswer": {"@type": "Answer", "text": "Todo pasa por WhatsApp: pedidos, reservas, consultas de carta y cotización de eventos, con el mensaje prearmado desde los botones de la página."}},
+      {"@type": "Question", "name": "¿Se pueden organizar cumpleaños o eventos privados?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Menús cerrados por persona, barra de café de especialidad, finger food, pastelería y branding de mesa con QR privado. Se cotiza desde la sección Eventos & catering."}},
+      {"@type": "Question", "name": "¿Qué medios de pago aceptan?", "acceptedAnswer": {"@type": "Answer", "text": "Efectivo, débito, crédito y pagos con QR/transferencia. Los medios definitivos se ajustan según el local."}}
     ]
   }
   </script>
@@ -2143,6 +2231,27 @@
 
 
 
+    <section id="galeria">
+      <div class="container">
+        <div data-reveal>
+          <p class="eyebrow">Galería</p>
+          <h2 class="section-title">El ambiente y los platos que enamoran.</h2>
+          <p class="section-copy">Una muestra visual del clima ANTARESa: barra de café, brunch de autor, pastelería de vitrina y mesa compartida. Acá se reemplazan por fotos reales del local.</p>
+        </div>
+        <div class="gallery-grid" data-reveal>
+          <figure class="gallery-item wide tall"><img src="assets/hero-antaresa.jpg" alt="Salón cálido y nocturno de ANTARESa" loading="lazy" decoding="async" /></figure>
+          <figure class="gallery-item"><img src="assets/food-brunch.jpg" alt="Brunch de autor con huevos y vegetales" loading="lazy" decoding="async" /></figure>
+          <figure class="gallery-item"><img src="assets/coffee-drinks.jpg" alt="Café de especialidad y bebidas de barra" loading="lazy" decoding="async" /></figure>
+          <figure class="gallery-item tall"><img src="assets/menu-bagel-salmon.jpg" alt="Bagel de salmón ahumado" loading="lazy" decoding="async" /></figure>
+          <figure class="gallery-item"><img src="assets/dessert-bar.jpg" alt="Pastelería fina y postres de vitrina" loading="lazy" decoding="async" /></figure>
+          <figure class="gallery-item"><img src="assets/menu-shakshuka.jpg" alt="Shakshuka con huevos y salsa de tomate" loading="lazy" decoding="async" /></figure>
+          <figure class="gallery-item wide"><img src="assets/menu-burger-bistro.jpg" alt="Burger bistro con papas rústicas" loading="lazy" decoding="async" /></figure>
+          <figure class="gallery-item"><img src="assets/menu-pavlova-frutos-rojos.jpg" alt="Pavlova con frutos rojos" loading="lazy" decoding="async" /></figure>
+          <figure class="gallery-item"><img src="assets/menu-matcha-latte.jpg" alt="Matcha latte ceremonial" loading="lazy" decoding="async" /></figure>
+        </div>
+      </div>
+    </section>
+
     <section id="club" class="enhanced-section">
       <div class="container premium-grid-2">
         <article class="premium-card" data-reveal>
@@ -2221,6 +2330,42 @@
       </div>
     </section>
 
+
+    <section id="faq">
+      <div class="container">
+        <div data-reveal>
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2 class="section-title">Todo lo que tu cliente quiere saber antes de venir.</h2>
+          <p class="section-copy">Respuestas claras para sacar dudas y bajar fricción. Se editan en segundos según la operación real del local.</p>
+        </div>
+        <div class="faq-list" data-reveal>
+          <details class="faq-item">
+            <summary>¿Necesito reservar o puedo ir directo?</summary>
+            <p>Podés venir sin reserva y, si hay lugar, te acomodamos al toque. Para asegurar mesa en horarios pico o grupos grandes, conviene reservar por WhatsApp o desde el formulario de esta página.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Hacen delivery o take away?</summary>
+            <p>Sí, se puede pedir para llevar y coordinar envío por WhatsApp. Armás tu selección desde el catálogo, tocás “WhatsApp” y te confirmamos disponibilidad y tiempos.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Tienen opciones vegetarianas, veganas o sin TACC?</summary>
+            <p>Sí. Buena parte de la carta es veggie o plant based, y hay alternativas sin TACC. Usá los filtros del catálogo (Veggie, 0.0 alcohol, Livianos) y consultá alérgenos en el detalle de cada plato.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Cómo hago un pedido o una consulta?</summary>
+            <p>Todo pasa por WhatsApp: pedidos, reservas, consultas de carta y cotización de eventos. Los botones de la página ya abren un chat con el mensaje prearmado.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Se pueden organizar cumpleaños o eventos privados?</summary>
+            <p>Sí. Ofrecemos menús cerrados por persona, barra de café de especialidad, finger food, pastelería y branding de mesa con QR privado. Cotizás tu evento desde la sección Eventos & catering.</p>
+          </details>
+          <details class="faq-item">
+            <summary>¿Qué medios de pago aceptan?</summary>
+            <p>Efectivo, débito, crédito y pagos con QR/transferencia. Los medios definitivos se ajustan según el local.</p>
+          </details>
+        </div>
+      </div>
+    </section>
 
     <section id="reservas" class="contact">
       <div class="container contact-grid">
@@ -2979,7 +3124,7 @@
       const categories = product.category || '';
       return `
           <article class="menu-card" data-admin-id="${escapeHtml(product.id)}" data-category="${escapeHtml(categories)}" data-name="${escapeHtml(product.name)}" data-price="${Number(product.price || 0)}" data-search="${escapeHtml(product.search || product.name)}" data-pairing="${escapeHtml(product.pairing || '')}" data-profile="${escapeHtml(product.profile || '')}" data-allergens="${escapeHtml(product.allergens || '')}" data-time="${escapeHtml(product.time || '')}" data-detail-tags="${escapeHtml((product.detailTags || product.tags || []).join('|'))}">
-            <div class="menu-media"><img src="${escapeHtml(product.image || 'assets/coffee-drinks.jpg')}" alt="${escapeHtml(product.alt || product.name)}" /><span class="menu-pill">${escapeHtml(product.pill || 'Carta')}</span></div>
+            <div class="menu-media"><img src="${escapeHtml(product.image || 'assets/coffee-drinks.jpg')}" alt="${escapeHtml(product.alt || product.name)}" loading="lazy" decoding="async" /><span class="menu-pill">${escapeHtml(product.pill || 'Carta')}</span></div>
             <div class="menu-body"><div class="menu-top"><h3>${escapeHtml(product.name)}</h3><span class="price">${formatter.format(Number(product.price || 0))}</span></div><p>${escapeHtml(product.description || '')}</p><div class="tags">${tags}</div><div class="menu-bottom"><span class="calories">${escapeHtml(product.calories || 'Porción')}</span><button class="btn btn-mini add-btn" type="button">Agregar</button></div></div>
           </article>`;
     }
