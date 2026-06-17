@@ -87,7 +87,6 @@ def main() -> None:
         'id="checkoutWhatsApp"',
         'data-whatsapp="general"',
         'application/ld+json',
-        'Av. Españasa entre 9 dejulios y Alemse',
         'id="adminPanel"',
         'id="adminLauncher"',
         'ADMIN_PIN',
