@@ -6,9 +6,9 @@
 | **Proyecto** | ANTARESa · Resto Café de Autor (web premium PWA, demo RestoBar) |
 | **Ruta absoluta** | `C:\Users\Flia.Robles\Desktop\ANTARESA` |
 | **Deploy** | GitHub Pages — https://maxiroblesfx-commits.github.io/antaresa-resto-cafe/ |
-| **Repo** | GitHub `maxiroblesfx-commits/antaresa-resto-cafe` (rama `main`) |
-| **Estado de git** | Repo con remoto. Rama `main`, **1 commit adelante de origin** (CONTEXTO.md sin pushear). |
-| **Última actualización** | 2026-06-16 |
+| **Repo** | DOS remotos: `origin` = `maxiroblesfx-commits/antaresa-resto-cafe` (PÚBLICO, sirve el sitio en vivo) · `privado` = `maxiroblesfx-commits/antaresa-restobar-demo-privado` (PRIVADO, copia de trabajo). Rama `main`. |
+| **Estado de git** | Sincronizado. Pushear a `origin` actualiza el sitio en vivo; `privado` es la copia privada. Para trabajar desde otra PC: `git clone` del repo privado. |
+| **Última actualización** | 2026-08-01 |
 <!-- /ENCABEZADO FIJO -->
 
 > Última actualización: 2026-06-16 · Estado: **LIVE en GitHub Pages**, demo premium presentable a cliente. Pendiente sólo datos reales del negocio.
